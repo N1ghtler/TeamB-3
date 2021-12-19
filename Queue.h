@@ -52,7 +52,7 @@ void Dequeue(Queue *q) {
   }
 }
 
-void Display(Queue *ds){
+void Display_Queue_Cos(Queue *ds){
   Node *dy;
   dy = ds->Front;
 
