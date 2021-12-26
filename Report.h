@@ -2,11 +2,9 @@
 #include <iostream>
 using namespace std;
 
-
-
-void WriteData(int data){
+void WriteData(int Date,char Mouth,int year){
      fstream Write;
      Write.open("Data.txt",ios::app);
-     Write<<endl;
+     Write<<Date<<" "<<Mouth<<" "<<year<<" "<<endl;
      Write.close();
 }
