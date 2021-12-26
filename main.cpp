@@ -11,13 +11,6 @@ int main(){
      Costomer_Queue = MakeNewList();
 
      //Write below here
-     
-     //Write to txt
-     fstream Write;
-     Write.open("Data.txt",ios::app);
-     Write<<endl;
-     Write.close();
-     //
 
      return 0;
 }
