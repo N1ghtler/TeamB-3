@@ -50,6 +50,7 @@ void Dequeue(Queue *q) {
     delete e;
     q->size = q->size - 1;
   }
+  cout <<"Done"<<endl;
 }
 
 void Display_Queue_Cos(Queue *ds){
