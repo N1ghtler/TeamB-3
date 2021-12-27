@@ -67,7 +67,7 @@ int main(){
                do
                {
                     again:
-                    cout<<"1. Add a item to the menu\n2. Remove a queue\n3. Display queue\n4. Exit\n";
+                    cout<<"1. None\n2. Remove a queue\n3. Display queue\n4. Exit\n";
                     cout<<"Enter your choice: ";
                     cin>>select;
                     if(select==1)
@@ -97,9 +97,8 @@ int main(){
           if (choice == 3)
           {
                break;
-          }
-               
-          }
+          }          
+     }
          
 
 
