@@ -62,7 +62,6 @@ int main(){
 
           }
           if(choice==2){
-               string a, b, c;
                int select;
           
                do
