@@ -113,13 +113,17 @@ int main(){
                     }
                     else if(select==2)
                     {
-                         cout <<"Still Under Construction."<<endl;
-                         goto Ragain;
+                         cout << "Enter Month:";
+                         cin >> Rmonth;
+                         cout << "Enter Year:";
+                         cin >> Ryear;
+                         Report_Month(Rmonth,Ryear);
                     }
                     else if(select==3)
                     {
-                         cout <<"Still Under Construction."<<endl;
-                         goto Ragain;
+                         cout << "Enter Year:";
+                         cin >> Ryear;
+                         Report_Year(Ryear);
                     }
 
                     else if(select==4){
