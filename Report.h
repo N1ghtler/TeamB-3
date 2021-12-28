@@ -27,7 +27,7 @@ void Report_Day(int Day,int Month,int Year){
           
      }
      Read.close();
-     if (Check == 0)
+     if (Check != 0)
      {
           cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
      }
