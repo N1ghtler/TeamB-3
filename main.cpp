@@ -57,9 +57,8 @@ int main(){
           cout<<"3.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
-
-               
-
+               cout <<"Still Under Construction."<<endl;
+               goto Menu;
           }
           if(choice==2){
                int select;
