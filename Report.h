@@ -19,7 +19,7 @@ void Report_Day(int Day,int Month,int Year){
      {
           Read>>Report_Date>>Report_Month>>Report_Year;
 
-          if (Report_Date == Day || Report_Month == Month || Report_Year == Year)
+          if (Report_Date == Day && Report_Month == Month && Report_Year == Year)
           {
                Check++;
                /* code */
