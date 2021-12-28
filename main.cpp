@@ -72,6 +72,7 @@ int main(){
                     cin>>select;
                     if(select==1)
                     {
+                         cout <<"Still Under Construction."<<endl;
                          goto again;
                     }
                     else if(select==2)
@@ -112,12 +113,13 @@ int main(){
                     }
                     else if(select==2)
                     {
-                         Dequeue(s);
+                         cout <<"Still Under Construction."<<endl;
+                         goto Ragain;
                     }
                     else if(select==3)
                     {
-                         Display_Queue_Cos(s);
-                         cout<<"--------------------------------\n";
+                         cout <<"Still Under Construction."<<endl;
+                         goto Ragain;
                     }
 
                     else if(select==4){
