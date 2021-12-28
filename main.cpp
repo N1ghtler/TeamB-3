@@ -54,7 +54,8 @@ int main(){
           Menu:
           cout<<"1.Coffee Menu"<<endl;
           cout<<"2.Admin"<<endl;
-          cout<<"3.Exit"<<endl;
+          cout<<"3.Report"<<endl;
+          cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
                cout <<"Still Under Construction."<<endl;
@@ -94,6 +95,39 @@ int main(){
 
           }
           if (choice == 3)
+          {
+               Ragain:
+               int select;
+               int RDay,Rmonth,Ryear;
+               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Exit\n";
+               if(select==1)
+                    {
+                         cout << "Enter Date:";
+                         cin >> RDay;
+                         cout << "Enter Month:";
+                         cin >> Rmonth;
+                         cout << "Enter Year:";
+                         cin >> Ryear;
+                         Report_Day(RDay,Rmonth,Ryear);
+                    }
+                    else if(select==2)
+                    {
+                         Dequeue(s);
+                    }
+                    else if(select==3)
+                    {
+                         Display_Queue_Cos(s);
+                         cout<<"--------------------------------\n";
+                    }
+
+                    else if(select==4){
+                         goto Menu;
+                    }else{
+                         cout<<"Invalid input\n"<<endl;
+                         goto Ragain;
+                    }
+          }
+          if (choice == 4)
           {
                break;
           }          

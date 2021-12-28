@@ -11,6 +11,8 @@ void WriteData(int Date,int Mouth,int year){
 
 void Report_Day(int Day,int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
+     int Report_TotalCup,Report_TotalMoney;
+     int Check=0;
      fstream Read;
      Read.open("Data.txt",ios::in);
      while (!Read.eof())
@@ -19,10 +21,18 @@ void Report_Day(int Day,int Month,int Year){
 
           if (Report_Date == Day || Report_Month == Month || Report_Year == Year)
           {
+               Check++;
                /* code */
           }
           
      }
      Read.close();
-     cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
+     if (Check == 0)
+     {
+          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
+     }
+     else{
+          cout <<"Data Not Exist";
+     }
+     
 }
