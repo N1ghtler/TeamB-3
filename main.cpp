@@ -6,6 +6,7 @@ using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
 int today_Scup,today_Mcup,today_Lcup,today_income;
+int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 
 struct CoffeeMenu{
      int No;
@@ -20,7 +21,7 @@ int i = 0;
 
 void ReadDataToCoffee(){
      fstream listCoffee;
-     listCoffee.open("CoffeeList.txt",ios::out);
+     listCoffee.open("CoffeeList.txt",ios::in);
      int N,Price;
      double SPrice,MPrice,LPrice;
      string Name;
@@ -55,6 +56,26 @@ int priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
+          //cout << "            "<<Menu[1].S<<endl;
+          if (Size[oS] == 1)
+          {
+               afCal = Menu[type[oS]].S * number[oS];
+               totalPrice = totalPrice + afCal;
+          }
+          else if (Size[oS] == 2)
+          {
+               afCal = Menu[type[oS]].M * number[oS];
+               totalPrice = totalPrice + afCal;
+          }
+          else if (Size[oS] == 3)
+          {
+               afCal = Menu[type[oS]].L * number[oS];
+               totalPrice = totalPrice + afCal;
+          }
+
+
+
+          /*
           for (int co = 0; co < 15; co++)
           {
                if (type[oS] == (Menu[co].No-1))
@@ -77,6 +98,7 @@ int priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                     break;
                }
           }
+          */
      }
      return totalPrice;
 }
@@ -162,22 +184,27 @@ int main(){
                }
                else if (more == 'n')
                {
+                    ++CosNumber;
                     n++;
                     for (int p = 0; p < n; p++)
                     {
                          if (typeofcup[p] == 1)
                          {
                               today_Scup++;
+                              cos_Scup++;
                          }
                          else if (typeofcup[p] == 2)
                          {
                               today_Mcup++;
+                              cos_Mcup++;
                          }
                          else if (typeofcup[p] == 3)
                          {
                               today_Lcup++;
+                              cos_Lcup++;
                          }
                     }
+                    enqueue(s,CosNumber,cos_Scup,cos_Mcup,cos_Lcup);
                }
                else
                {
