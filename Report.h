@@ -11,7 +11,7 @@ void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Inc
 
 void Report_Day(int Day,int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup,Report_TotalMoney,total_SCup,total_SCup,total_SCup;
+     int Report_TotalCup,Report_TotalMoney,total_SCup,total_MCup,total_LCup;
      double TotalIncome;
      int Check=0;
      fstream Read;
@@ -29,10 +29,11 @@ void Report_Day(int Day,int Month,int Year){
           }
           
      }
+     Report_TotalCup = total_SCup + total_MCup + total_LCup;
      Read.close();
      if (Check != 0)
      {
-          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  "<<endl;
+          cout << "Total Cup: "<<Report_TotalCup << "Total s Cup: "<< total_SCup << "Total M Cup: "<<total_MCup<< "Total L Cup: "<<total_LCup<< "Total income: "<<endl;
      }
      else{
           cout <<"Data Not Exist"<<endl;
@@ -42,7 +43,7 @@ void Report_Day(int Day,int Month,int Year){
 
 void Report_Month(int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup,Report_TotalMoney,total_SCup,total_SCup,total_SCup;
+     int Report_TotalCup,Report_TotalMoney,total_SCup,total_MCup,total_LCup;
      double TotalIncome;
      int Check=0;
      fstream Read;
@@ -73,7 +74,7 @@ void Report_Month(int Month,int Year){
 
 void Report_Year(int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup,Report_TotalMoney,total_SCup,total_SCup,total_SCup;
+     int Report_TotalCup,Report_TotalMoney,total_SCup,total_MCup,total_LCup;
      double TotalIncome;
      int Check=0;
      fstream Read;

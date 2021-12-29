@@ -4,7 +4,7 @@
 #include <fstream>
 using namespace std;
 
-int today_Date,today_Month,today_Year,Stop=0;
+int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
 int today_Scup,today_Mcup,today_Lcup;
 
 struct CoffeeMenu{
@@ -103,12 +103,8 @@ int main(){
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
-               /*for (int k = 0; k <= i; k++)
-               {
-                    int i = 0;
-                    cout << List[k].No << " " << List[k].Type << " "  << List[k].price << " " <<endl;
-               }
-               */
+               cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
+               cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
                cout <<"Still Under Construction."<<endl;
                goto Menu;

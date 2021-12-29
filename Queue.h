@@ -3,18 +3,18 @@ using namespace std;
 
 struct Node
 {
-     int Name;
-     int Size=0;
-     int Mize=0;
-     int Lize=0;
-     Node *next;
+  int Name;
+  int Size=0;
+  int Mize=0;
+  int Lize=0;
+  Node *next;
 };
 
 struct Queue
 {
-     int size;
-     Node *Front;
-     Node *Rear;
+  int size;
+  Node *Front;
+  Node *Rear;
 };
 
 Queue *MakeNewList(){
