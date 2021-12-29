@@ -53,7 +53,7 @@ int main(){
      {
           Menu:
           cout<<"1.Coffee Menu"<<endl;
-          cout<<"2.Admin"<<endl;
+          cout<<"2.Queue"<<endl;
           cout<<"3.Report"<<endl;
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
