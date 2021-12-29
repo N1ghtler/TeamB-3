@@ -20,7 +20,7 @@ int i = 0;
 
 void ReadDataToCoffee(){
      fstream listCoffee;
-     listCoffee.open("CoffeeList.txt",ios::in);
+     listCoffee.open("CoffeeList.txt",ios::out);
      int N,Price;
      double SPrice,MPrice,LPrice;
      string Name;
@@ -51,13 +51,44 @@ void ReadData(){
     F1.close();
 }
 
+int priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
+     double totalPrice = 0,afCal;
+     for (int oS = 0; oS < arrSize; oS++)
+     {
+          for (int co = 0; co < 15; co++)
+          {
+               if (type[oS] == (Menu[co].No-1))
+               {
+                    if (Size[oS] == 1)
+                    {
+                         afCal = Menu[co].S * number[oS];
+                         totalPrice = totalPrice + afCal;
+                    }
+                    else if (Size[oS] == 2)
+                    {
+                         afCal = Menu[co].M * number[oS];
+                         totalPrice = totalPrice + afCal;
+                    }
+                    else if (Size[oS] == 3)
+                    {
+                         afCal = Menu[co].L * number[oS];
+                         totalPrice = totalPrice + afCal;
+                    }
+                    break;
+               }
+          }
+     }
+     return totalPrice;
+}
+
 void dateCheck(){
-     int Date,Month,year;
+     int Date,Month,year,t,s,m,l;
+     double p;
 
      cout << "Input today date"<<endl;
      cout << "Day(number): ";
      cin >> today_Date;
-     cout << "Month(Jar,Feb): ";
+     cout << "Month(1,2): ";
      cin >> today_Month;
      cout << "Year(number): ";
      cin >> today_Year;
@@ -66,7 +97,7 @@ void dateCheck(){
      checkDate.open("Data.txt",ios::in);
 
      while(!checkDate.eof()){         
-          checkDate>>Date>>Month>>year;
+          checkDate>>Date>>Month>>year>>s>>m>>l>>p;
           if (Date == today_Date && Month == today_Month && year == today_Year)
           {
                cout << "The Date is Exist."<<endl;
@@ -97,17 +128,63 @@ int main(){
      while (true)
      {
           Menu:
+          cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
+          cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
           cout<<"1.Coffee Menu"<<endl;
           cout<<"2.Queue"<<endl;
           cout<<"3.Admin"<<endl;
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
+               char more;
+               int n = 0;
+               int typeofcoffee[10];
+               int typeofcup[10];
+               int numberofcup[10];
+               Order:
                cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
-               cout <<"Still Under Construction."<<endl;
-               goto Menu;
+               cout << "Enter The No of the Coffee: ";
+               cin >> typeofcoffee[n];
+               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medmin\n 3. Large\n> ";
+               cin >> typeofcup[n];
+               cout << "Enter The number of the Coffee: ";
+               cin >> numberofcup[n];
+               wantmore:
+               cout << "Do You want to get more ?(y)Yes,(n)No";
+               cin >> more;
+               
+               if (more == 'y')
+               {
+                    n++;
+                    goto Order;
+               }
+               else if (more == 'n')
+               {
+                    n++;
+                    for (int p = 0; p < n; p++)
+                    {
+                         if (typeofcup[p] == 1)
+                         {
+                              today_Scup++;
+                         }
+                         else if (typeofcup[p] == 2)
+                         {
+                              today_Mcup++;
+                         }
+                         else if (typeofcup[p] == 3)
+                         {
+                              today_Lcup++;
+                         }
+                    }
+               }
+               else
+               {
+                    goto wantmore;
+               }
+               cout << "The total cost is "<< priceCar(List,typeofcoffee,typeofcup,numberofcup,n)<<endl;
+               
           }
           if(choice==2){
                int select;

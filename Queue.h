@@ -4,9 +4,9 @@ using namespace std;
 struct Node
 {
   int Name;
-  int Size=0;
-  int Mize=0;
-  int Lize=0;
+  int Size;
+  int Mize;
+  int Lize;
   Node *next;
 };
 
