@@ -5,7 +5,7 @@
 using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
-int today_Scup,today_Mcup,today_Lcup;
+int today_Scup,today_Mcup,today_Lcup,today_income;
 
 struct CoffeeMenu{
      int No;
@@ -167,14 +167,14 @@ int main(){
                     cin >> Rmonth;
                     cout << "Enter Year:";
                     cin >> Ryear;
-                    Report_Month(Rmonth,Ryear);
+                    Report_month(Rmonth,Ryear);
                     goto Ragain;
                }
                else if(select==3)
                {
                     cout << "Enter Year:";
                     cin >> Ryear;
-                    Report_Year(Ryear);
+                    Report_year(Ryear);
                     goto Ragain;
                }
 
