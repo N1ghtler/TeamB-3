@@ -9,7 +9,9 @@ int today_Date,today_Month,today_Year,Stop=0;
 struct CoffeeMenu{
      int No;
      string Type;
-     double price;
+     double S;
+     double M;
+     double L;
 };
 
 CoffeeMenu List[20];
@@ -19,16 +21,33 @@ void ReadDataToCoffee(){
      fstream listCoffee;
      listCoffee.open("CoffeeList.txt",ios::in);
      int N,Price;
+     double SPrice,MPrice,LPrice;
      string Name;
      while (!listCoffee.eof())
      {
-          listCoffee >> N >> Name >> Price;
+          listCoffee >> N >> Name >> SPrice >> MPrice >> LPrice;
           List[i].No = N;
           List[i].Type = Name;
-          List[i].price = Price;
+          List[i].S = SPrice;
+          List[i].M = MPrice;
+          List[i].L = LPrice;
           i++;
      }
      listCoffee.close();
+}
+
+void ReadData(){
+    fstream F1;
+    float priceS,priceM,priceL;
+    string cafe;
+    string line;
+
+    F1.open("Menu.txt", ios::in);
+    while(!F1.eof()){
+    getline(F1,line);
+    cout<<line<<endl;
+    }
+    F1.close();
 }
 
 void dateCheck(){
@@ -83,11 +102,13 @@ int main(){
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
-               for (int k = 0; k <= i; k++)
+               /*for (int k = 0; k <= i; k++)
                {
                     int i = 0;
                     cout << List[k].No << " " << List[k].Type << " "  << List[k].price << " " <<endl;
                }
+               */
+               ReadData();
                cout <<"Still Under Construction."<<endl;
                goto Menu;
           }
