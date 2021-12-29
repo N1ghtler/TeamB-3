@@ -56,7 +56,6 @@ double priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
-          //cout << "            "<<Menu[1].S<<endl;
           if (Size[oS] == 1)
           {
                afCal = Menu[type[oS]].S * number[oS];
@@ -72,33 +71,6 @@ double priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
           }
-
-
-
-          /*
-          for (int co = 0; co < 15; co++)
-          {
-               if (type[oS] == (Menu[co].No-1))
-               {
-                    if (Size[oS] == 1)
-                    {
-                         afCal = Menu[co].S * number[oS];
-                         totalPrice = totalPrice + afCal;
-                    }
-                    else if (Size[oS] == 2)
-                    {
-                         afCal = Menu[co].M * number[oS];
-                         totalPrice = totalPrice + afCal;
-                    }
-                    else if (Size[oS] == 3)
-                    {
-                         afCal = Menu[co].L * number[oS];
-                         totalPrice = totalPrice + afCal;
-                    }
-                    break;
-               }
-          }
-          */
      }
      return totalPrice;
 }
