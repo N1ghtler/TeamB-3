@@ -6,6 +6,14 @@ using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0;
 
+struct CoffeeMenu{
+     int No;
+     string Type;
+     double price;
+};
+
+CoffeeMenu List[20];
+
 void dateCheck(){
      int Date,Month,year;
 
@@ -54,7 +62,7 @@ int main(){
           Menu:
           cout<<"1.Coffee Menu"<<endl;
           cout<<"2.Queue"<<endl;
-          cout<<"3.Report"<<endl;
+          cout<<"3.Admin"<<endl;
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
@@ -111,6 +119,7 @@ int main(){
                     cout << "Enter Year:";
                     cin >> Ryear;
                     Report_Day(RDay,Rmonth,Ryear);
+                    goto Ragain;
                }
                else if(select==2)
                {
@@ -119,12 +128,14 @@ int main(){
                     cout << "Enter Year:";
                     cin >> Ryear;
                     Report_Month(Rmonth,Ryear);
+                    goto Ragain;
                }
                else if(select==3)
                {
                     cout << "Enter Year:";
                     cin >> Ryear;
                     Report_Year(Ryear);
+                    goto Ragain;
                }
 
                else if(select==4){
