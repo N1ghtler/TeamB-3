@@ -5,6 +5,7 @@
 using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0;
+int today_Scup,today_Mcup,today_Lcup;
 
 struct CoffeeMenu{
      int No;

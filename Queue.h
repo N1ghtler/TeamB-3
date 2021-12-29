@@ -3,7 +3,10 @@ using namespace std;
 
 struct Node
 {
-     int data;
+     int Name;
+     int Size=0;
+     int Mize=0;
+     int Lize=0;
      Node *next;
 };
 
@@ -24,10 +27,13 @@ Queue *MakeNewList(){
      return ls;
 }
 
-void enqueue(Queue *q, int Queue_data){
+void enqueue(Queue *q,int Name,int Size,int Mize,int Lize){
   Node *e;
   e = new Node;
-  e->data = Queue_data;
+  e->Name = Name;
+  e->Size = Size;
+  e->Mize = Mize;
+  e->Lize = Lize;
   if(q->size == 0){
     q->Front = e;
     q->Rear = e;
@@ -59,7 +65,7 @@ void Display_Queue_Cos(Queue *ds){
 
   while (dy!= NULL)
   {
-    cout<<dy->data<<" ";
+    cout<<dy->Name<<" "<< "S Cup ;" << dy->Size<< " M Cup ;" << dy->Mize<< " L Cup ;" << dy->Lize;
     dy = dy->next;
   }
   cout<<endl;
