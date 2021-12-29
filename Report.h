@@ -29,10 +29,10 @@ void Report_Day(int Day,int Month,int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
+          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  "<<endl;
      }
      else{
-          cout <<"Data Not Exist";
+          cout <<"Data Not Exist"<<endl;
      }
      
 }
@@ -57,10 +57,10 @@ void Report_Month(int Month,int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
+          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  "<<endl;
      }
      else{
-          cout <<"Data Not Exist";
+          cout <<"Data Not Exist"<<endl;
      }
      
 }
@@ -85,10 +85,10 @@ void Report_Year(int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  ";
+          cout << "Total ...... " << "Total ......  " << "Total ......  " << "Total ......  "<< "Total ......  "<<endl;
      }
      else{
-          cout <<"Data Not Exist";
+          cout <<"Data Not Exist"<<endl;
      }
      
 }
