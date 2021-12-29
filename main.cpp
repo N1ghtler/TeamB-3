@@ -5,7 +5,7 @@
 using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
-int today_Scup,today_Mcup,today_Lcup,today_income;
+int today_Scup,today_Mcup,today_Lcup,today_income = 0;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 
 struct CoffeeMenu{
@@ -52,7 +52,7 @@ void ReadData(){
     F1.close();
 }
 
-int priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
+double priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
@@ -211,6 +211,7 @@ int main(){
                     goto wantmore;
                }
                cout << "The total cost is "<< priceCar(List,typeofcoffee,typeofcup,numberofcup,n)<<endl;
+               today_income = priceCar(List,typeofcoffee,typeofcup,numberofcup,n) + today_income;
                
           }
           if(choice==2){
