@@ -100,38 +100,41 @@ int main(){
                Ragain:
                int select;
                int RDay,Rmonth,Ryear;
-               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Exit\n";
+               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Exit\n"<<"> ";
+               cin >>select;
                if(select==1)
-                    {
-                         cout << "Enter Date:";
-                         cin >> RDay;
-                         cout << "Enter Month:";
-                         cin >> Rmonth;
-                         cout << "Enter Year:";
-                         cin >> Ryear;
-                         Report_Day(RDay,Rmonth,Ryear);
-                    }
-                    else if(select==2)
-                    {
-                         cout << "Enter Month:";
-                         cin >> Rmonth;
-                         cout << "Enter Year:";
-                         cin >> Ryear;
-                         Report_Month(Rmonth,Ryear);
-                    }
-                    else if(select==3)
-                    {
-                         cout << "Enter Year:";
-                         cin >> Ryear;
-                         Report_Year(Ryear);
-                    }
+               {
+                    cout << "Enter Date:";
+                    cin >> RDay;
+                    cout << "Enter Month:";
+                    cin >> Rmonth;
+                    cout << "Enter Year:";
+                    cin >> Ryear;
+                    Report_Day(RDay,Rmonth,Ryear);
+               }
+               else if(select==2)
+               {
+                    cout << "Enter Month:";
+                    cin >> Rmonth;
+                    cout << "Enter Year:";
+                    cin >> Ryear;
+                    Report_Month(Rmonth,Ryear);
+               }
+               else if(select==3)
+               {
+                    cout << "Enter Year:";
+                    cin >> Ryear;
+                    Report_Year(Ryear);
+               }
 
-                    else if(select==4){
-                         goto Menu;
-                    }else{
-                         cout<<"Invalid input\n"<<endl;
-                         goto Ragain;
-                    }
+               else if(select==4){
+                    goto Menu;
+               }
+               else
+               {
+                    cout<<"Invalid input\n"<<endl;
+                    goto Ragain;
+               }
           }
           if (choice == 4)
           {
