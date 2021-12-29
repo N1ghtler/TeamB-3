@@ -13,6 +13,23 @@ struct CoffeeMenu{
 };
 
 CoffeeMenu List[20];
+int i = 0;
+
+void ReadDataToCoffee(){
+     fstream listCoffee;
+     listCoffee.open("CoffeeList.txt",ios::in);
+     int N,Price;
+     string Name;
+     while (!listCoffee.eof())
+     {
+          listCoffee >> N >> Name >> Price;
+          List[i].No = N;
+          List[i].Type = Name;
+          List[i].price = Price;
+          i++;
+     }
+     listCoffee.close();
+}
 
 void dateCheck(){
      int Date,Month,year;
@@ -51,7 +68,7 @@ int main(){
      Queue *s;
      s = MakeNewList();
      dateCheck();
-     
+     ReadDataToCoffee();
 
      
      //Write below here
@@ -66,6 +83,11 @@ int main(){
           cout<<"4.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
+               for (int k = 0; k <= i; k++)
+               {
+                    int i = 0;
+                    cout << List[k].No << " " << List[k].Type << " "  << List[k].price << " " <<endl;
+               }
                cout <<"Still Under Construction."<<endl;
                goto Menu;
           }
