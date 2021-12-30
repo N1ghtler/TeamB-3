@@ -5,9 +5,9 @@
 using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
-int today_Scup,today_Mcup,today_Lcup,today_income = 0;
+int today_Scup,today_Mcup,today_Lcup;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
-double Cos_Total=0;
+double Cos_Total=0,today_income = 0;
 
 struct CoffeeMenu{
      int No;
