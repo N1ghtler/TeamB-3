@@ -7,6 +7,7 @@ using namespace std;
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
 int today_Scup,today_Mcup,today_Lcup,today_income = 0;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
+double Cos_Total=0;
 
 struct CoffeeMenu{
      int No;
@@ -52,27 +53,37 @@ void ReadData(){
     F1.close();
 }
 
-double priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
+void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
+     Cos_Total=0;
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
+          cout << Menu[type[oS]].Type<<"\t";
           if (Size[oS] == 1)
           {
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
+               cout << Menu[type[oS]].S << "\t\t" << totalPrice<<"$"<<endl;
+               Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 2)
           {
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
+               cout << Menu[type[oS]].M << "\t\t" << totalPrice<<"$"<<endl;
+               Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 3)
           {
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
+               cout << Menu[type[oS]].L << "\t\t"<< totalPrice<<"$"<<endl;
+               Cos_Total = Cos_Total + totalPrice;
           }
      }
-     return totalPrice;
+     cout<< "\nThe total cost is "<<Cos_Total<<"$";
+     today_income = totalPrice + today_income;
+
 }
 
 void dateCheck(){
@@ -139,12 +150,26 @@ int main(){
                cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
-               cout << "Enter The No of the Coffee: ";
+               IDorder:
+               cout << "Enter The ID of the Coffee: ";
                cin >> typeofcoffee[n];
-               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medmin\n 3. Large\n> ";
+               if (typeofcoffee[n] > 15)
+               {
+                    goto IDorder;
+               }
+               
+               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medmin\n 3. Large\n 4. Menu\n> ";
                cin >> typeofcup[n];
-               cout << "Enter The number of the Coffee: ";
+               if (typeofcup[n] == 4)
+               {
+                    goto IDorder;
+               }
+               cout << "Enter The number of the Coffee \n(-1 for Menu):";
                cin >> numberofcup[n];
+               if (numberofcup[n] == -1)
+               {
+                    goto IDorder;
+               }
                wantmore:
                cout << "Do You want to get more ?(y)Yes,(n)No";
                cin >> more;
@@ -182,8 +207,8 @@ int main(){
                {
                     goto wantmore;
                }
-               cout << "The total cost is "<< priceCar(List,typeofcoffee,typeofcup,numberofcup,n)<<endl;
-               today_income = priceCar(List,typeofcoffee,typeofcup,numberofcup,n) + today_income;
+               cout << "Coffee\t Price per Coffee\t Total\n";
+               priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
           }
           if(choice==2){
