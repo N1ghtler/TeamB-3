@@ -389,6 +389,7 @@ void Display_Queue_Cos(Queue *qs)
 {
 	Element *tmp;
 	tmp = qs->front;
+  int cos_order_number=1;
 	if(qs->n == 0)
 	{
 		cout<<"Cannot display because there is no element in the queue";
@@ -397,13 +398,16 @@ void Display_Queue_Cos(Queue *qs)
 	{
 		while (tmp != NULL)
     {
+      cout << "Order: "<<cos_order_number<<endl;
     for(int i=0;i < tmp->ordersize ;i++)
 		{
 			cout<<"Name/Size/Number : ";
-			cout<<tmp->name[i]<<"/"<<tmp->size[i]<<"/"<<tmp->number[i];
+			cout<<tmp->name[i]<<"\t"<<tmp->size[i]<<"\t"<<tmp->number[i];
 			cout<<endl;
 		}
       tmp = tmp->next;
+      cos_order_number++;
+      cout << endl;
     }
 	}
 }
