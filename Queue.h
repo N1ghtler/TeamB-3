@@ -402,8 +402,8 @@ void Display_Queue_Cos(Queue *qs)
 			cout<<"Name/Size/Number : ";
 			cout<<tmp->name[i]<<"/"<<tmp->size[i]<<"/"<<tmp->number[i];
 			cout<<endl;
-      tmp = tmp->next;
 		}
+      tmp = tmp->next;
     }
 	}
 }
