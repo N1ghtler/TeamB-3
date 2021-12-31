@@ -1,7 +1,8 @@
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 #include "Report.h"
 #include "Queue.h"
-#include <fstream>
 using namespace std;
 
 int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
@@ -58,26 +59,26 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
-          cout << Menu[type[oS]].Type<<"\t";
+          cout << Menu[type[oS]].Type<< setw(20) ;
           if (Size[oS] == 1)
           {
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].S << "\t\t" << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].S << setw(20) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 2)
           {
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].M << "\t\t" << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].M << setw(20) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 3)
           {
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].L << "\t\t"<< totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].L << setw(20) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
      }
@@ -164,12 +165,19 @@ int main(){
                {
                     goto IDorder;
                }
+               AmountCoff:
                cout << "Enter The number of the Coffee \n(-1 for Menu):";
                cin >> numberofcup[n];
                if (numberofcup[n] == -1)
                {
                     goto IDorder;
                }
+               else if (numberofcup[n] < 0)
+               {
+                    cout <<"ONLY BIGGER THEN 0";
+                    goto AmountCoff;
+               }
+               
                wantmore:
                cout << "Do You want to get more ?(y)Yes,(n)No";
                cin >> more;
@@ -201,7 +209,7 @@ int main(){
                               cos_Lcup++;
                          }
                     }
-                    enqueue(s,CosNumber,cos_Scup,cos_Mcup,cos_Lcup);
+                    enqueue(s,typeofcoffee,typeofcup,numberofcup,n);
                }
                else
                {
