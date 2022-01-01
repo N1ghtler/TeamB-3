@@ -19,13 +19,6 @@ int today_Date = ltm->tm_mday
    ,today_Month = 1 + ltm->tm_mon
    ,today_Year = 1900 + ltm->tm_year;
 
-struct CoffeeMenu{
-     int No;
-     string Type;
-     double S;
-     double M;
-     double L;
-};
 
 CoffeeMenu List[20];
 int i = 0;
@@ -231,7 +224,7 @@ int main(){
                               cos_Lcup++;
                          }
                     }
-                    enqueue(s,typeofcoffee,typeofcup,numberofcup,n);
+                    enqueue(s,typeofcoffee,typeofcup,numberofcup,n,List);
                }
                else
                {
@@ -247,27 +240,23 @@ int main(){
                do
                {
                     again:
-                    cout<<"1. None\n2. Remove a queue\n3. Display queue\n4. Exit\n";
+                    cout<<"1. Remove a queue\n2. Display queue\n3. Exit\n";
                     cout<<"Enter your choice: ";
                     cin>>select;
                     if(select==1)
                     {
-                         cout <<"Still Under Construction."<<endl;
-                         goto again;
-                    }
-                    else if(select==2)
-                    {
                          Dequeue(s);
                     }
-                    else if(select==3)
+                    else if(select==2)
                     {
                          Display_Queue_Cos(s);
                          cout<<"--------------------------------\n";
                     }
-
-                    else if(select==4){
+                    else if(select==3)
+                    {
                          goto Menu;
-                    }else{
+                    }
+                    else{
                          cout<<"Invalid input\n"<<endl;
                          goto again;
                     }
@@ -277,7 +266,7 @@ int main(){
           }
           if (choice == 3)
           {
-               Ragain:
+               Wrpass:
                string pass;
                int select;
                int RDay,Rmonth,Ryear;
@@ -286,10 +275,11 @@ int main(){
                if (!password(pass))
                {
                     cout << "Wrong Password\n";
-                    goto Ragain;
+                    goto Wrpass;
                }
                
-               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Exit\n"<<"> ";
+               Ragain:
+               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Add Coffee(Today Specials Coffee)\n5. Remove Coffee(Today Specials Coffee)\n6. Exit\n"<<"> ";
                cin >>select;
                if(select==1)
                {
@@ -318,8 +308,19 @@ int main(){
                     Report_year(Ryear);
                     goto Ragain;
                }
-
                else if(select==4){
+                    if (List[19].No == 0)
+                    {
+                         cout << "Today Specials Coffee is FUll, Remove a Coffee first.\n"<<i<<endl;
+                         goto Ragain;
+                    }
+                    string CofName;
+                    double Sprice,Mprice,Lprice;
+               }
+               else if(select==5){
+                    goto Ragain;
+               }
+               else if(select==6){
                     goto Menu;
                }
                else
@@ -334,7 +335,7 @@ int main(){
           }          
      }
          
-
-
+     FindTopSell();
+     //WriteData(today_Date,today_Month,today_Year,today_Scup,today_Mcup,today_Lcup,today_income,ID_Top_Sel,Number_Top_Sell);
      return 0;
 };

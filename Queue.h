@@ -1,12 +1,20 @@
 #include<iostream>
 using namespace std;
 
+//Vadhana move form Main to queue
+struct CoffeeMenu{
+     int No;
+     string Type;
+     double S;
+     double M;
+     double L;
+};
 struct Element
 {
 	string name[50];
-  string size[50];
+  	string size[50];
 	int number[50];
-  int ordersize;
+  	int ordersize;
 	Element *next;
 };
 
@@ -26,7 +34,7 @@ Queue *MakeNewList()
 	return qs;
 }
 
-void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize)
+void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,CoffeeMenu Menu[])
 {
 	Element *e = new Element();
   e->ordersize = arrSize;
@@ -333,8 +341,27 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize)
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-	   else
-    	{
+	//Vadhana Add to queue for the today coffee
+	else if (Menu[name[i]].No != 0)
+	{
+		Menu[name[i]].Type = e->name[i];
+		if(size[i] == 1)
+		{
+			e->size[i] = "small";
+		}
+		else if(size[i] == 2)
+		{
+			e->size[i] = "medium";
+		}
+		else if(size[i] == 3)
+		{
+			e->size[i] = "large";
+		}
+
+	}
+	
+	else
+    	{	
 	    	e->name[i] = "Invalid";
 	    	if(size[i] == 1)
 	    	{
