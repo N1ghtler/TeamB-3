@@ -91,21 +91,21 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           {
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].S << setw(20) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].S << setw(18) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 2)
           {
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].M << setw(20) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].M << setw(18) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 3)
           {
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].L << setw(20) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].L << setw(18) << totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
      }
@@ -157,24 +157,25 @@ int main(){
                     goto IDorder;
                }
                cout<<"\t\t----------      Today Specials Coffee       ---------"<<endl;
-               for (int coffleist = 15; coffleist < 20; coffleist++)
+               cout << "ID" << setw(20) << "Name" << setw(20) << "Small price" << setw(20) << "Medium price" << setw(20) << "Large price" << endl;
+               for (int coffleist = 15; coffleist < i; coffleist++)
                {
-                    if (List[coffleist].No == 0)
+                    if (List[coffleist+1].No == 0)
                     {
-                         break;
+                         goto IDorder;
                     }
-                    cout << List[coffleist].No << List[coffleist].S  << List[coffleist].M  << List[coffleist].L;
+                    cout << List[coffleist].No << setw(20) << List[coffleist].Type << setw(20) << List[coffleist].S << setw(20) << List[coffleist].M << setw(20) << List[coffleist].L << endl;
                }
                
                IDorder:
                cout << "Enter The ID of the Coffee: ";
                cin >> typeofcoffee[n];
-               if (typeofcoffee[n] > 15)
+               if (List[typeofcoffee[n]].No == 0)
                {
                     goto IDorder;
                }
                
-               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medmin\n 3. Large\n 4. Menu\n> ";
+               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n> ";
                cin >> typeofcup[n];
                if (typeofcup[n] == 4)
                {
@@ -245,6 +246,14 @@ int main(){
                     cin>>select;
                     if(select==1)
                     {
+                         string pass;
+                         cout << "Password: ";
+                         cin >> pass;
+                         if (!password(pass))
+                         {
+                              cout << "Wrong Password\n";
+                              goto Wrpass;
+                         }
                          Dequeue(s);
                     }
                     else if(select==2)
@@ -268,8 +277,6 @@ int main(){
           {
                Wrpass:
                string pass;
-               int select;
-               int RDay,Rmonth,Ryear;
                cout << "Password: ";
                cin >> pass;
                if (!password(pass))
@@ -277,9 +284,11 @@ int main(){
                     cout << "Wrong Password\n";
                     goto Wrpass;
                }
+               int select;
+               int RDay,Rmonth,Ryear;
                
                Ragain:
-               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Add Coffee(Today Specials Coffee)\n5. Remove Coffee(Today Specials Coffee)\n6. Exit\n"<<"> ";
+               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Add Coffee(Today Specials Coffee)\n5. Remove a Coffee(Today Specials Coffee)\n6. Remove ALL Coffee(Today Specials Coffee)\n7. Exit\n"<<"> ";
                cin >>select;
                if(select==1)
                {
@@ -309,18 +318,72 @@ int main(){
                     goto Ragain;
                }
                else if(select==4){
-                    if (List[19].No == 0)
+                    if (List[19].No != 0)
                     {
                          cout << "Today Specials Coffee is FUll, Remove a Coffee first.\n"<<i<<endl;
                          goto Ragain;
                     }
+                    MakeAgain:
                     string CofName;
+                    char yesorno;
                     double Sprice,Mprice,Lprice;
+                    cout << "Enter Coffee Name: ";
+                    cin >> CofName;
+                    cout << "Enter Coffee Small Price: ";
+                    cin >> Sprice;
+                    cout << "Enter Coffee Medium Price: ";
+                    cin >> Mprice;
+                    cout << "Enter Coffee Large Price: ";
+                    cin >> Lprice;
+                    cout << "Name: " <<CofName << " prices S M L "<<Sprice<<" "<<Mprice<<" "<<Lprice<<endl<<"Enter (y) to add ,(n) for no : ";
+                    cin >> yesorno;
+                    if (yesorno == 'y')
+                    {
+                         List[i].No = i+1;
+                         List[i].Type = CofName;
+                         List[i].S = Sprice;
+                         List[i].M = Mprice;
+                         List[i].L = Lprice;
+                         fstream NewMenu;
+                         NewMenu.open("CoffeeList.txt",ios::out);
+                         for (int NewListMenu = 0; NewListMenu <= i; NewListMenu++)
+                         {
+                              NewMenu << List[NewListMenu].No <<" " << List[NewListMenu].Type <<" " << List[NewListMenu].S <<" " << List[NewListMenu].M <<" " << List[NewListMenu].L <<endl;
+                         }
+                         NewMenu.close();
+                         i++;
+                    }
+                    else
+                    {
+                         goto MakeAgain;
+                    }
+                    
                }
                else if(select==5){
+                    //remove 1
                     goto Ragain;
                }
                else if(select==6){
+                    int Confom;
+                    cout << "Enter (1111) to delete all Today Specials Coffee : ";
+                    cin >> Confom;
+                    if (Confom != 1111)
+                    {
+                         cout << "Fail to delete."<<endl;
+                         goto Ragain;
+                    }
+                    
+                    //remove all
+                    fstream Removeall;
+                    Removeall.open("CoffeeList.txt",ios::out);
+                    for (int NewListMenu = 0; NewListMenu < 15; NewListMenu++)
+                    {
+                         Removeall << List[NewListMenu].No <<" " << List[NewListMenu].Type <<" " << List[NewListMenu].S <<" " << List[NewListMenu].M <<" " << List[NewListMenu].L <<endl;
+                    }
+                    Removeall.close();
+                    goto Ragain;
+               }
+               else if(select==7){
                     goto Menu;
                }
                else
