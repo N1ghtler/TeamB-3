@@ -66,12 +66,25 @@ void ReadData(){
     F1.close();
 }
 
+bool password(string password)
+{
+  if(password == "pass12345")
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+
 void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
-          Today_Top_Sel[type[oS]] = Today_Top_Sel[type[oS]] + arrSize;
+          Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + arrSize;
           cout << Menu[type[oS]].Type<< setw(20) ;
           if (Size[oS] == 1)
           {
@@ -269,8 +282,17 @@ int main(){
           if (choice == 3)
           {
                Ragain:
+               string pass;
                int select;
                int RDay,Rmonth,Ryear;
+               cout << "Password: ";
+               cin >> pass;
+               if (!password(pass))
+               {
+                    cout << "Wrong Password\n";
+                    goto Ragain;
+               }
+               
                cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4. Exit\n"<<"> ";
                cin >>select;
                if(select==1)
