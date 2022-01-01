@@ -4,16 +4,16 @@ using namespace std;
 
 
 
-void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Income){
+void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Income,int CoffeeID,int Nub){
      fstream Write;
      Write.open("Data.txt",ios::app);
-     Write<<Date<<" "<<Mouth<<" "<<year<<" "<<SCup<<" "<<MCup<<" "<<LCup<<" "<<Income<<endl;
+     Write<<Date<<" "<<Mouth<<" "<<year<<" "<<SCup<<" "<<MCup<<" "<<LCup<<" "<<Income<<" "<<CoffeeID<<" "<<Nub<<endl;
      Write.close();
 }
 
 void Report_Day(int Day,int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -22,7 +22,7 @@ void Report_Day(int Day,int Month,int Year){
      {
           double tmpincmone;
           int tmpSCup,tmpMCup,tmpLCup;
-          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone;
+          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone>>Coffeeid>>CoffeeNub;
 
           if (Report_Date == Day && Report_Month == Month && Report_Year == Year)
           {
@@ -38,7 +38,7 @@ void Report_Day(int Day,int Month,int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total Cup: "<<Report_TotalCup << "Total s Cup: "<< total_SCup << "Total M Cup: "<<total_MCup<< "Total L Cup: "<<total_LCup<< "Total income: "<<TotalIncome<<endl;
+          cout << "Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
      }
      else{
           cout <<"Data Not Exist"<<endl;
@@ -48,7 +48,7 @@ void Report_Day(int Day,int Month,int Year){
 
 void Report_month(int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -57,7 +57,7 @@ void Report_month(int Month,int Year){
      {
           double tmpincmone;
           int tmpSCup,tmpMCup,tmpLCup;
-          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone;
+          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone>>Coffeeid>>CoffeeNub;
 
           if (Report_Month == Month && Report_Year == Year)
           {
@@ -73,7 +73,7 @@ void Report_month(int Month,int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total Cup: "<<Report_TotalCup << "Total s Cup: "<< total_SCup << "Total M Cup: "<<total_MCup<< "Total L Cup: "<<total_LCup<< "Total income: "<<TotalIncome<<endl;
+          cout << "Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
      }
      else{
           cout <<"Data Not Exist"<<endl;
@@ -83,7 +83,7 @@ void Report_month(int Month,int Year){
 
 void Report_year(int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -92,7 +92,7 @@ void Report_year(int Year){
      {
           double tmpincmone;
           int tmpSCup,tmpMCup,tmpLCup;
-          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone;
+          Read>>Report_Date>>Report_Month>>Report_Year>>tmpSCup>>tmpMCup>>tmpLCup>>tmpincmone>>Coffeeid>>CoffeeNub;
 
           if (Report_Year == Year)
           {
@@ -108,7 +108,7 @@ void Report_year(int Year){
      Read.close();
      if (Check != 0)
      {
-          cout << "Total Cup: "<<Report_TotalCup << "Total s Cup: "<< total_SCup << "Total M Cup: "<<total_MCup<< "Total L Cup: "<<total_LCup<< "Total income: "<<TotalIncome<<endl;
+          cout << " Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
      }
      else{
           cout <<"Data Not Exist"<<endl;

@@ -31,7 +31,7 @@ CoffeeMenu List[20];
 int i = 0;
 
 void FindTopSell(){
-     for (int r = 0; r < 20; r++)
+     for (int r = 0; r < 15; r++)
      {
           if (Today_Top_Sells[r] < Today_Top_Sells[r+1])
           {
@@ -159,6 +159,20 @@ int main(){
                cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
+               if (List[15].No == 0)
+               {
+                    goto IDorder;
+               }
+               cout<<"\t\t----------      Today Specials Coffee       ---------"<<endl;
+               for (int coffleist = 15; coffleist < 20; coffleist++)
+               {
+                    if (List[coffleist].No == 0)
+                    {
+                         break;
+                    }
+                    cout << List[coffleist].No << List[coffleist].S  << List[coffleist].M  << List[coffleist].L;
+               }
+               
                IDorder:
                cout << "Enter The ID of the Coffee: ";
                cin >> typeofcoffee[n];
