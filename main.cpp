@@ -9,6 +9,7 @@ int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
 int today_Scup,today_Mcup,today_Lcup;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 double Cos_Total=0,today_income = 0;
+int Today_Top_Sells[20],ID_Top_Sel,Number_Top_Sell;
 
 struct CoffeeMenu{
      int No;
@@ -20,6 +21,17 @@ struct CoffeeMenu{
 
 CoffeeMenu List[20];
 int i = 0;
+
+void FindTopSell(){
+     for (int r = 0; r < 20; r++)
+     {
+          if (Today_Top_Sells[r] < Today_Top_Sells[r+1])
+          {
+               ID_Top_Sel = r;
+               Number_Top_Sell = Today_Top_Sells[r+1];
+          }
+     }
+}
 
 void ReadDataToCoffee(){
      fstream listCoffee;
@@ -59,6 +71,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
      {
+          Today_Top_Sel[type[oS]] = Today_Top_Sel[type[oS]] + arrSize;
           cout << Menu[type[oS]].Type<< setw(20) ;
           if (Size[oS] == 1)
           {
