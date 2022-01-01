@@ -1,15 +1,23 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <ctime>
 #include "Report.h"
 #include "Queue.h"
 using namespace std;
 
-int today_Date,today_Month,today_Year,Stop=0,CosNumber = 0;
+int Stop=0,CosNumber = 0;
 int today_Scup,today_Mcup,today_Lcup;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 double Cos_Total=0,today_income = 0;
 int Today_Top_Sells[20],ID_Top_Sel,Number_Top_Sell;
+
+time_t now = time(0);
+tm *ltm = localtime(&now);
+
+int today_Date = ltm->tm_mday
+   ,today_Month = 1 + ltm->tm_mon
+   ,today_Year = 1900 + ltm->tm_year;
 
 struct CoffeeMenu{
      int No;
@@ -116,15 +124,6 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
 void dateCheck(){
      int Date,Month,year,t,s,m,l;
      double p;
-
-     cout << "Input today date"<<endl;
-     cout << "Day(number): ";
-     cin >> today_Date;
-     cout << "Month(1,2): ";
-     cin >> today_Month;
-     cout << "Year(number): ";
-     cin >> today_Year;
-
      fstream checkDate;
      checkDate.open("Data.txt",ios::in);
 
@@ -140,6 +139,9 @@ void dateCheck(){
      Stop++;
      if (Stop == 1)
      {
+          cout << "Year:" << 1900 + ltm->tm_year<<endl;
+          cout << "Month: "<< 1 + ltm->tm_mon<< endl;
+          cout << "Day: "<< ltm->tm_mday << endl;
           cout << "The Date is save."<<endl;
           checkDate.close();
      }
