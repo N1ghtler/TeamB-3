@@ -122,30 +122,10 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
 }
 
 void dateCheck(){
-     int Date,Month,year,t,s,m,l;
-     double p;
-     fstream checkDate;
-     checkDate.open("Data.txt",ios::in);
-
-     while(!checkDate.eof()){         
-          checkDate>>Date>>Month>>year>>s>>m>>l>>p;
-          if (Date == today_Date && Month == today_Month && year == today_Year)
-          {
-               cout << "The Date is Exist."<<endl;
-               checkDate.close();
-               dateCheck();
-          }
-     }
-     Stop++;
-     if (Stop == 1)
-     {
-          cout << "Year:" << 1900 + ltm->tm_year<<endl;
-          cout << "Month: "<< 1 + ltm->tm_mon<< endl;
-          cout << "Day: "<< ltm->tm_mday << endl;
-          cout << "The Date is save."<<endl;
-          checkDate.close();
-     }
-     
+     cout << "Year:" << 1900 + ltm->tm_year<<endl;
+     cout << "Month: "<< 1 + ltm->tm_mon<< endl;
+     cout << "Day: "<< ltm->tm_mday << endl;
+     cout << "The Date is save."<<endl;
 }
 
 int main(){
