@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <ctime>
 #include "Report.h"
 #include "Queue.h"
+#include "Game.h"
 using namespace std;
 
 int Stop=0,CosNumber = 0;
@@ -84,9 +84,15 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
-     {
+     {    
           Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + arrSize;
-          cout << Menu[type[oS]].Type<< setw(20) ;
+          if (type[oS] == 0)
+          {
+               cout << "Bullet"<< setw(20) ;
+          }
+          else{
+               cout << Menu[type[oS]].Type<< setw(20) ;
+          }
           if (Size[oS] == 1)
           {
                afCal = Menu[type[oS]].S * number[oS];
@@ -138,9 +144,10 @@ int main(){
           cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
           cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
           cout<<"1.Coffee Menu"<<endl;
-          cout<<"2.Queue"<<endl;
-          cout<<"3.Admin"<<endl;
-          cout<<"4.Exit"<<endl;
+          cout<<"2.Game"<<endl;
+          cout<<"3.Queue"<<endl;
+          cout<<"4.Admin"<<endl;
+          cout<<"5.Exit"<<endl;
           cout<<"Please enter your choice:"<<endl;cin>>choice;
           if (choice==1){
                char more;
@@ -160,16 +167,20 @@ int main(){
                cout << "ID" << setw(20) << "Name" << setw(20) << "Small price" << setw(20) << "Medium price" << setw(20) << "Large price" << endl;
                for (int coffleist = 15; coffleist < i; coffleist++)
                {
-                    if (List[coffleist+1].No == 0)
+                    if (List[coffleist].No == 0)
                     {
                          goto IDorder;
                     }
-                    cout << List[coffleist].No << setw(20) << List[coffleist].Type << setw(20) << List[coffleist].S << setw(20) << List[coffleist].M << setw(20) << List[coffleist].L << endl;
+                    else
+                    {
+                         cout << List[coffleist].No << setw(20) << List[coffleist].Type << setw(20) << List[coffleist].S << setw(20) << List[coffleist].M << setw(20) << List[coffleist].L << endl;
+                    }
                }
                
                IDorder:
                cout << "Enter The ID of the Coffee: ";
                cin >> typeofcoffee[n];
+               typeofcoffee[n] = typeofcoffee[n] - 1;
                if (List[typeofcoffee[n]].No == 0)
                {
                     goto IDorder;
@@ -235,7 +246,46 @@ int main(){
                priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
           }
-          if(choice==2){
+          if (choice == 2)
+          {
+               system("cls");
+               int an;
+               cout<<" ++ We have 3 games and our system will randomly chose it for you ++\n"<<endl;
+               cout<<" ----->>   Game   <<-----"<<endl;
+               cout<<" | 1. Tic Tac Toe       |"<<endl;
+               cout<<" | 2. Rock Paper Scissor|"<<endl;
+               cout<<" | 3. Special Word      |"<<endl;
+               cout<<" ------------------------"<<endl;
+
+               cout<<" \n\n- Our system will randomly chose a game for you"<<endl;
+
+               while (an<1 || an>2){
+               cout<<" - Are you Ready to Start The Game ?\n  1. Yes , 2. N0 \n => ";
+               cin >> an;
+               system("cls");
+               if(an==1){
+                    cout<<" \t<< Game Start !! >>\n"<<endl;
+                    int GameChoice;
+                    srand(time(NULL));
+                    GameChoice = (rand() % 3) + 1;
+
+                    if(GameChoice==1){
+                         Game1();}
+                    else if(GameChoice==2){
+                         Game2();}
+                    else{
+                         Game3();}
+                    }
+               else if(an==2){
+                    cout<<" <<Exit Game!!>>"<<endl;
+                    break;}
+               else{
+                         cout<<" << Invalid Input! ";
+                         cout<<"Please choose again >>"<<endl;
+                    }
+               }
+          }  
+          if(choice==3){
                int select;
           
                do
@@ -273,7 +323,7 @@ int main(){
 
 
           }
-          if (choice == 3)
+          if (choice == 4)
           {
                Wrpass:
                string pass;
@@ -361,7 +411,49 @@ int main(){
                }
                else if(select==5){
                     //remove 1
-                    goto Ragain;
+                    if (List[15].No == 0)
+                    {
+                         cout << "There no Specials Coffee."<<endl;
+                         goto Ragain;
+                    }
+                    cout<<"\t\t----------      Today Specials Coffee       ---------"<<endl;
+                    cout << "ID" << setw(20) << "Name" << setw(20) << "Small price" << setw(20) << "Medium price" << setw(20) << "Large price" << endl;
+                    for (int coffleist = 15; coffleist < i; coffleist++)
+                    {
+                         if (List[coffleist].No == 0)
+                         {
+                              goto deleteCoffee;
+                         }
+                         else
+                         {
+                              cout << List[coffleist].No << setw(20) << List[coffleist].Type << setw(20) << List[coffleist].S << setw(20) << List[coffleist].M << setw(20) << List[coffleist].L << endl;
+                         }
+                    }
+                    int delteCoffeeMenu;
+                    deleteCoffee:
+                    cout << "Enter Coffee ID(Over 15): " ;
+                    cin >> delteCoffeeMenu;
+                    if (delteCoffeeMenu <= 15 || delteCoffeeMenu <= 0 || delteCoffeeMenu >= 20)
+                    {
+                         goto deleteCoffee;
+                    }
+                    delteCoffeeMenu = delteCoffeeMenu - 1;
+                    for (int romve = delteCoffeeMenu; romve < i; romve++)
+                    {
+                         List[romve].No = List[romve+1].No - 1;
+                         List[romve].Type =  List[romve+1].Type;
+                         List[romve].S = List[romve+1].S;
+                         List[romve].M = List[romve+1].M;
+                         List[romve].L = List[romve+1].L;
+                    }
+                    i--;
+                    fstream NewMenu;
+                    NewMenu.open("CoffeeList.txt",ios::out);
+                    for (int NewListMenu = 0; NewListMenu < i; NewListMenu++)
+                    {
+                         NewMenu << List[NewListMenu].No <<" " << List[NewListMenu].Type <<" " << List[NewListMenu].S <<" " << List[NewListMenu].M <<" " << List[NewListMenu].L <<endl ;
+                    }
+                    NewMenu.close();
                }
                else if(select==6){
                     int Confom;
@@ -378,9 +470,10 @@ int main(){
                     Removeall.open("CoffeeList.txt",ios::out);
                     for (int NewListMenu = 0; NewListMenu < 15; NewListMenu++)
                     {
-                         Removeall << List[NewListMenu].No <<" " << List[NewListMenu].Type <<" " << List[NewListMenu].S <<" " << List[NewListMenu].M <<" " << List[NewListMenu].L <<endl;
+                         Removeall << List[NewListMenu].No <<" " << List[NewListMenu].Type <<" " << List[NewListMenu].S <<" " << List[NewListMenu].M <<" " << List[NewListMenu].L <<endl ;
                     }
                     Removeall.close();
+
                     goto Ragain;
                }
                else if(select==7){
@@ -392,7 +485,7 @@ int main(){
                     goto Ragain;
                }
           }
-          if (choice == 4)
+          if (choice == 5)
           {
                break;
           }          
