@@ -236,7 +236,7 @@ void Game3(){
     system("cls");
     string word;
 
-    cout<<" ** Random on Game 3: ''\n"<<endl;
+    cout<<" ** Random on Game 3: 'Special Word'\n"<<endl;
     cout<<" Below is our introduction please read it carefully"<<endl;
     cout<<" - You will be asked to give any Word in which more than 4 letters "<<endl;
     cout<<" - IF the combination of those letters fit with our lucky table you will get a price \n"<<endl;
