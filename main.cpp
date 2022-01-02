@@ -159,13 +159,13 @@ int main(){
                cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
-               if (List[15].No == 0)
+               if (List[16].No == 0)
                {
                     goto IDorder;
                }
                cout<<"\t\t----------      Today Specials Coffee       ---------"<<endl;
                cout << "ID" << setw(20) << "Name" << setw(20) << "Small price" << setw(20) << "Medium price" << setw(20) << "Large price" << endl;
-               for (int coffleist = 15; coffleist < i; coffleist++)
+               for (int coffleist = 16; coffleist < i; coffleist++)
                {
                     if (List[coffleist].No == 0)
                     {
@@ -285,7 +285,7 @@ int main(){
                     }
                }
           }  
-          if(choice==3){
+          if (choice == 3){
                int select;
           
                do
