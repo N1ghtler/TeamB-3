@@ -41,7 +41,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 	for(int i=0;i<arrSize;i++)
 	{
 		e->number[i] = number[i];
-	    if(name[i] == 1)
+	    if(name[i] == 0)
 	    {
 		    e->name[i] = "Bullet";
 		    if(size[i] == 1)
@@ -419,7 +419,7 @@ void Display_Queue_Cos(Queue *qs)
   int cos_order_number=1;
 	if(qs->n == 0)
 	{
-		cout<<"Cannot display because there is no element in the queue";
+		cout<<"Cannot display because there is no element in the queue"<<endl;
 	}
 	else
 	{
