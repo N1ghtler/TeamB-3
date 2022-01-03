@@ -64,7 +64,8 @@ void Game1(){
     cout<<" ** Random on Game 1: 'Tic Tac Toe'\n"<<endl;
 
 	int player = 1;
-    int i,choice;
+    int i;
+    char choice;
     char PlayerSign;
 
     do{
@@ -76,31 +77,31 @@ void Game1(){
 
         PlayerSign = (player == 1) ? 'X':'O';
 
-        if (choice == 1 && Sign[1] == '1')
+        if (choice == '1' && Sign[1] == '1')
             Sign[1] = PlayerSign;
 
-        else if (choice==2 && Sign[2]=='2')
+        else if (choice=='2' && Sign[2]=='2')
             Sign[2] = PlayerSign;
 
-        else if (choice==3 && Sign[3]=='3')
+        else if (choice=='3' && Sign[3]=='3')
             Sign[3] = PlayerSign;
 
-        else if (choice==4 && Sign[4]=='4')
+        else if (choice=='4' && Sign[4]=='4')
             Sign[4] = PlayerSign;
 
-        else if (choice==5 && Sign[5]=='5')
+        else if (choice=='5' && Sign[5]=='5')
             Sign[5] = PlayerSign;
 
-        else if (choice == 6 && Sign[6] == '6')
+        else if (choice =='6' && Sign[6] == '6')
             Sign[6] = PlayerSign;
 
-        else if (choice==7 && Sign[7]=='7')
+        else if (choice=='7' && Sign[7]=='7')
             Sign[7] = PlayerSign;
 
-        else if (choice==8 && Sign[8]=='8')
+        else if (choice=='8' && Sign[8]=='8')
             Sign[8] = PlayerSign;
 
-        else if (choice==9 && Sign[9]=='9')
+        else if (choice=='9' && Sign[9]=='9')
             Sign[9] = PlayerSign;
         else
         {
@@ -110,7 +111,7 @@ void Game1(){
     // i increase 1 for winning time
         i=Check_Winner(); player++;
 
-    }while((i==-1) || ( choice<1 || choice>9));
+    }while((i==-1) || ( choice<'1' || choice>'9'));
 
     ShowBoard();
     if(i==1){
@@ -127,7 +128,9 @@ void Game1(){
     }
 }
 void Game2(){
-    int i,choice1,choice2;
+    int i;
+    char choice1;
+    int choice2;
     string player;
     system("cls");
     cout<<" ** Random on Game 2: 'Rock Paper Scissor'\n"<<endl;
@@ -148,17 +151,17 @@ void Game2(){
     cout<<"  Please enter your name : ";fflush(stdin);getline(cin,player);
  
 //customer turn
-while(choice1<1 || choice1>3){
+while(choice1<'1' || choice1>'3'){
         cout <<" + "<< player << ", Enter Your Choice :  ";
         cin >> choice1;
         system("cls");
-        if(choice1==1){
+        if(choice1=='1'){
             cout<<" => "<<player<<" chose :1 . Rock"<<endl;
             }
-        else if(choice1==2){
+        else if(choice1=='2'){
             cout<<" => "<<player<<" chose :2 . Paper"<<endl;
              }
-        else if(choice1==3){
+        else if(choice1== '3'){
             cout<<" => "<<player<<" chose :3 . Scissor"<<endl;
             }
     else{
@@ -180,7 +183,7 @@ while(choice1<1 || choice1>3){
         cout<<" => Staff chose :3 . Scissor"<<endl;}
 //Result 
     cout<<"\n\n => Result : ";
-    if(choice1==1){
+    if(choice1=='1'){
         if(choice2==1){
             cout<<"---x--- \aGame draw  ---X---"<<endl;
         }
@@ -191,7 +194,7 @@ while(choice1<1 || choice1>3){
             cout<<" Congratulation !! You got coupon discount 2$"<<endl;
         }
     }
-    else if(choice1==2){
+    else if(choice1=='2'){
         if(choice2==1){
             cout<<" Congratulation !! You got coupon discount 1$"<<endl;
         }
@@ -202,7 +205,7 @@ while(choice1<1 || choice1>3){
             cout<<" Our staff win you didn't get any discount . Try next time!!"<<endl;
         }}
     else{
-        if(choice2==1){
+        if(choice2=='1'){
                cout<<" Our staff win you didn't get any discount . Try next time!!"<<endl;
         }
         else if(choice2==2){
