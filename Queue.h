@@ -37,7 +37,7 @@ Queue *MakeNewList()
 void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,CoffeeMenu Menu[])
 {
 	Element *e = new Element();
-  e->ordersize = arrSize;
+  	e->ordersize = arrSize;
 	for(int i=0;i<arrSize;i++)
 	{
 		e->number[i] = number[i];
@@ -61,7 +61,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 			    e->size[i] = "Invalid";
 		    }
 	    }
-	    else if(name[i] == 2)
+	    else if(name[i] == 1)
 	    {
 		    e->name[i] = "Crown";
 		    if(size[i] == 1)
@@ -81,7 +81,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 			    e->size[i] = "Invalid";
 		    }
 	    }
-	    else if(name[i] == 3)
+	    else if(name[i] == 2)
 	    {
 		    e->name[i] = "Hot_Latte";
 		    if(size[i] == 1)
@@ -101,7 +101,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 			    e->size[i] = "Invalid";
 		    }
 	    }
-	    else if(name[i] == 4)
+	    else if(name[i] == 3)
 	    {
 		    e->name[i] = "Cappucino";
 		    if(size[i] == 1)
@@ -121,7 +121,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 			    e->size[i] = "Invalid";
 		    }
 	    }
-	    else if(name[i] == 5)
+	    else if(name[i] == 4)
 	    {
 		    e->name[i] = "Mocha";
 		    if(size[i] == 1)
@@ -141,7 +141,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 			    e->size[i] = "Invalid";
 		    }
 	    }
-	    else if(name[i] == 6)
+	    else if(name[i] == 5)
 	    {
 	    	e->name[i] = "Cacoa";
 	    	if(size[i] == 1)
@@ -161,7 +161,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-    	else if(name[i] == 7)
+    	else if(name[i] == 6)
     	{
 		    e->name[i] = "Vannila_Frape";
 	        if(size[i] == 1)
@@ -181,7 +181,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-    	else if(name[i] == 8)
+    	else if(name[i] == 7)
 	    {
 	    	e->name[i] = "Caramel_Frape";
 	    	if(size[i] == 1)
@@ -201,7 +201,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-    	else if(name[i] == 9)
+    	else if(name[i] == 8)
      	{
 	    	e->name[i] = "Salted_Caramel";
 	    	if(size[i] == 1)
@@ -221,7 +221,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-	    else if(name[i] == 10)
+	    else if(name[i] == 9)
     	{
 	    	e->name[i] = "Ice_Latte";
 	    	if(size[i] == 1)
@@ -241,7 +241,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 	    		e->size[i] = "Invalid";
 	    	}
     	}
-    	else if(name[i] == 11)
+    	else if(name[i] == 10)
     	{
 	    	e->name[i] = "Cappucino";
 	    	if(size[i] == 1)
@@ -261,7 +261,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-    	else if(name[i] == 12)
+    	else if(name[i] == 11)
     	{
     		e->name[i] = "Espresso";
 	    	if(size[i] == 1)
@@ -281,7 +281,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-	    else if(name[i] == 13)
+	    else if(name[i] == 12)
 	    {
 	    	e->name[i] = "Americano";
 	     	if(size[i] == 1)
@@ -301,7 +301,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 		    }
     	}
-	    else if(name[i] == 14)
+	    else if(name[i] == 13)
 	    {
 		   e->name[i] = "Machhiato";
 	    	if(size[i] == 1)
@@ -321,7 +321,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 		    }
     	}
-    	else if(name[i] == 15)
+    	else if(name[i] == 14)
     	{
 	    	e->name[i] = "Marochhino";
 	    	if(size[i] == 1)
@@ -341,25 +341,7 @@ void enqueue(Queue *qs, int name[], int size[], int number[], int arrSize,Coffee
 		    	e->size[i] = "Invalid";
 	    	}
     	}
-	//Vadhana Add to queue for the today coffee
-	else if (Menu[name[i]].No != 0)
-	{
-		Menu[name[i]].Type = e->name[i];
-		if(size[i] == 1)
-		{
-			e->size[i] = "small";
-		}
-		else if(size[i] == 2)
-		{
-			e->size[i] = "medium";
-		}
-		else if(size[i] == 3)
-		{
-			e->size[i] = "large";
-		}
 
-	}
-	
 	else
     	{	
 	    	e->name[i] = "Invalid";
