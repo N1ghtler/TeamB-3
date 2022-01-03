@@ -84,14 +84,15 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
      for (int oS = 0; oS < arrSize; oS++)
-     {    
+     {   
+          totalPrice = 0; 
           Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + arrSize;
           if (type[oS] == 0)
           {
-               cout << "Bullet"<< setw(20) ;
+               cout << "Bullet"<< setw(15) ;
           }
           else{
-               cout << Menu[type[oS]].Type<< setw(20) ;
+               cout << Menu[type[oS]].Type<< setw(18) ;
           }
           if (Size[oS] == 1)
           {

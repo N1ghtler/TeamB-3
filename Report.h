@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+string Name[20] = {"Bullet","Crown","Hot_Latte","Cappucino","Mocha","Cacoa","Vannila_Frape","Caramel_Frape","Salted_Caramel","Ice_Latte","Cappucino_BS","Espresso","Americano","Machhiato","Marochhino"};
 
 
 void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Income,int CoffeeID,int Nub){
