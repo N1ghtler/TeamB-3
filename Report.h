@@ -3,7 +3,20 @@
 using namespace std;
 
 string Name[20] = {"Bullet","Crown","Hot_Latte","Cappucino","Mocha","Cacoa","Vannila_Frape","Caramel_Frape","Salted_Caramel","Ice_Latte","Cappucino_BS","Espresso","Americano","Machhiato","Marochhino"};
+int Likes[20];
 
+void MostLike(){
+     int LikeID,Amug=0;
+     for (int i = 0; i < 20; i++)
+     {
+          if (Likes[i] < Likes[i+1])
+          {
+               LikeID = i+1;
+               Amug = Likes[i+1];
+          }
+     }
+     cout << "Most Order Coffee is "<< Name[LikeID] << " times : " << Amug << endl;
+}
 
 void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Income,int CoffeeID,int Nub){
      fstream Write;
@@ -14,7 +27,7 @@ void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Inc
 
 void Report_Day(int Day,int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid=0,CoffeeNub=0;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -32,6 +45,7 @@ void Report_Day(int Day,int Month,int Year){
                total_MCup = total_MCup + tmpMCup;
                total_LCup = total_LCup + tmpLCup;
                TotalIncome = TotalIncome + tmpincmone;
+               Likes[Coffeeid] = Likes[Coffeeid] + CoffeeNub;
           }
           
      }
@@ -40,6 +54,7 @@ void Report_Day(int Day,int Month,int Year){
      if (Check != 0)
      {
           cout << "Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
+          MostLike();
      }
      else{
           cout <<"Data Not Exist"<<endl;
@@ -49,7 +64,7 @@ void Report_Day(int Day,int Month,int Year){
 
 void Report_month(int Month,int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid=0,CoffeeNub=0;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -67,6 +82,7 @@ void Report_month(int Month,int Year){
                total_MCup = total_MCup + tmpMCup;
                total_LCup = total_LCup + tmpLCup;
                TotalIncome = TotalIncome + tmpincmone;
+               Likes[Coffeeid] = Likes[Coffeeid] + CoffeeNub;
           }
           
      }
@@ -75,6 +91,7 @@ void Report_month(int Month,int Year){
      if (Check != 0)
      {
           cout << "Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
+          MostLike();
      }
      else{
           cout <<"Data Not Exist"<<endl;
@@ -84,7 +101,7 @@ void Report_month(int Month,int Year){
 
 void Report_year(int Year){
      int Report_Date,Report_Month,Report_Year;
-     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid,CoffeeNub;
+     int Report_TotalCup=0,total_SCup=0,total_MCup=0,total_LCup=0,Coffeeid=0,CoffeeNub=0;
      double TotalIncome=0;
      int Check=0;
      fstream Read;
@@ -102,6 +119,7 @@ void Report_year(int Year){
                total_MCup = total_MCup + tmpMCup;
                total_LCup = total_LCup + tmpLCup;
                TotalIncome = TotalIncome + tmpincmone;
+               Likes[Coffeeid] = Likes[Coffeeid] + CoffeeNub;
           }
           
      }
@@ -110,6 +128,7 @@ void Report_year(int Year){
      if (Check != 0)
      {
           cout << " Total Cup: "<<Report_TotalCup << " Total s Cup: "<< total_SCup << " Total M Cup: "<<total_MCup<< " Total L Cup: "<<total_LCup<< " Total income: "<<TotalIncome<<endl;
+          MostLike();
      }
      else{
           cout <<"Data Not Exist"<<endl;

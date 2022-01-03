@@ -28,7 +28,7 @@ void FindTopSell(){
      {
           if (Today_Top_Sells[r] < Today_Top_Sells[r+1])
           {
-               ID_Top_Sel = r;
+               ID_Top_Sel = r+1;
                Number_Top_Sell = Today_Top_Sells[r+1];
           }
      }
@@ -366,6 +366,6 @@ int main(){
      }
          
      FindTopSell();
-     //WriteData(today_Date,today_Month,today_Year,today_Scup,today_Mcup,today_Lcup,today_income,ID_Top_Sel,Number_Top_Sell);
+     WriteData(today_Date,today_Month,today_Year,today_Scup,today_Mcup,today_Lcup,today_income,ID_Top_Sel,Number_Top_Sell);
      return 0;
 };
