@@ -249,7 +249,7 @@ int main(){
           if (choice == 2)
           {
                system("cls");
-               int an;
+               char an;
                cout<<" ++ We have 3 games and our system will randomly chose it for you ++\n"<<endl;
                cout<<" ----->>   Game   <<-----"<<endl;
                cout<<" | 1. Tic Tac Toe       |"<<endl;
@@ -259,13 +259,13 @@ int main(){
 
                cout<<" \n\n- Our system will randomly chose a game for you"<<endl;
 
-               while (an<1 || an>2){
+               while (an<'1' || an>'2'){
                cout<<" - Are you Ready to Start The Game ?\n  1. Yes , 2. N0 \n => ";
                cin >> an;
                system("cls");
-               if(an==1){
+               if(an=='1'){
                     cout<<" \t<< Game Start !! >>\n"<<endl;
-                    int GameChoice;
+                    char GameChoice;
                     srand(time(NULL));
                     GameChoice = (rand() % 3) + 1;
 
@@ -276,7 +276,7 @@ int main(){
                     else{
                          Game3();}
                     }
-               else if(an==2){
+               else if(an== '2'){
                     cout<<" <<Exit Game!!>>"<<endl;
                     break;}
                else{
