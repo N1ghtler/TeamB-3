@@ -16,6 +16,10 @@ void MostLike(){
           }
      }
      cout << "Most Order Coffee is "<< Name[LikeID] << " times : " << Amug << endl;
+     for (int r = 0; r < 15; r++)
+     {
+          Likes[r] = 0;
+     }
 }
 
 void WriteData(int Date,int Mouth,int year,int SCup,int MCup,int LCup,double Income,int CoffeeID,int Nub){

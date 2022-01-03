@@ -17,7 +17,8 @@ tm *ltm = localtime(&now);
 
 int today_Date = ltm->tm_mday
    ,today_Month = 1 + ltm->tm_mon
-   ,today_Year = 1900 + ltm->tm_year;
+   ,today_Year = 1900 + ltm->tm_year
+;
 
 
 CoffeeMenu List[20];
@@ -117,7 +118,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
      }
      cout<< "\nThe total cost is "<<Cos_Total<<"$";
-     today_income = totalPrice + today_income;
+     today_income = Cos_Total + today_income;
 
 }
 
@@ -321,7 +322,7 @@ int main(){
                int RDay,Rmonth,Ryear;
                
                Ragain:
-               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4.Exit\n"<<"> ";
+               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4.Save Report\n5.Exit\n"<<"> ";
                cin >>select;
                if(select==1)
                {
@@ -351,6 +352,22 @@ int main(){
                     goto Ragain;
                }
                else if(select==4){
+                    FindTopSell();
+                    WriteData(today_Date,today_Month,today_Year,today_Scup,today_Mcup,today_Lcup,today_income,ID_Top_Sel,Number_Top_Sell);
+                    today_Scup = 0;
+                    today_Mcup = 0;
+                    today_Lcup = 0;
+                    today_income = 0;
+                    ID_Top_Sel = 0;
+                    Number_Top_Sell = 0;
+                    for (int r = 0; r < 15; r++)
+                    {
+                         Today_Top_Sells[r] = 0;
+                    }
+                    cout << "Data Saved"<<endl;
+                    goto Ragain;
+               }
+               else if(select==5){
                     goto Menu;
                }
                else
