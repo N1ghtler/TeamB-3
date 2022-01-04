@@ -6,7 +6,7 @@
 #include "Game.h"
 using namespace std;
 
-int Stop=0,CosNumber = 0;
+int Stop=0;
 int today_Scup,today_Mcup,today_Lcup;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 double Cos_Total=0,today_income = 0;
@@ -88,7 +88,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + arrSize;
           if (type[oS] == 0)
           {
-               cout << "Bullet"<< setw(15) ;
+               cout << " Bullet"<< setw(15) ;
           }
           else{
                cout << Menu[type[oS]].Type<< setw(18) ;
@@ -121,17 +121,18 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
 }
 
 void DateCheck(){
-     cout << "Year:" << 1900 + ltm->tm_year<<endl;
-     cout << "Month: "<< 1 + ltm->tm_mon<< endl;
-     cout << "Day: "<< ltm->tm_mday << endl;
-     cout << "The Date is save."<<endl;
+     cout << " - Year :" << 1900 + ltm->tm_year<<endl;
+     cout << " - Month : "<< 1 + ltm->tm_mon<< endl;
+     cout << " - Day : "<< ltm->tm_mday << endl;
+     cout << " - Date was saved."<<endl;
 }
 
 int main(){
+     system("cls");
      //Start UP
      Queue *s;
      s = MakeNewList();
-     dateCheck();
+     DateCheck();
      ReadDataToCoffee();
 
      //Write below here
@@ -146,8 +147,9 @@ int main(){
           cout<<" 3. Queue"<<endl;
           cout<<" 4. Admin"<<endl;
           cout<<" 5. Exit"<<endl;
-          cout<<" => Please enter your choice : ";cin>>choice;
+          cout<<" \n=> Please enter your choice : ";cin>>choice;
           if (choice==1){
+               cout<<"\n + You chose Coffee Menu ::"<<endl;
                char more;
                int n = 0;
                int typeofcoffee[10];
@@ -158,15 +160,14 @@ int main(){
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
                IDorder:
-               cout << " - Enter The ID of the Coffee: ";
+               cout << " - Enter The ID of the Coffee : ";
                cin >> typeofcoffee[n];
                typeofcoffee[n] = typeofcoffee[n] - 1;
                if (List[typeofcoffee[n]].No == 0)
                {
                     goto IDorder;
                }
-               
-               cout << " Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n> ";
+               cout << " - Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n";
                cout <<" => ";
                cin >> typeofcup[n];
                if (typeofcup[n] == 4)
@@ -174,7 +175,7 @@ int main(){
                     goto IDorder;
                }
                AmountCoff:
-               cout << " Enter The number of the Coffee \n(-1 for Menu) : ";
+               cout << " - Enter The number of the Coffee \n(-1 Back to Menu) => : ";
                cin >> numberofcup[n];
                if (numberofcup[n] == -1)
                {
@@ -182,23 +183,22 @@ int main(){
                }
                else if (numberofcup[n] < 0)
                {
-                    cout <<"ONLY BIGGER THEN 0";
+                    cout <<" !!<< ONLY BIGGER THEN 0 >>";
                     goto AmountCoff;
                }
                
                wantmore:
-               cout << "Do You want to get more ?(y)Yes,(n)No";
+               cout << " - Do You want to get more ?\n ( 1. Yes , 2. No ) ";
                cout<<" => ";
                cin >> more;
                
-               if (more == 'y')
+               if (more == '1')
                {
                     n++;
                     goto Order;
                }
-               else if (more == 'n')
+               else if (more == '2')
                {
-                    ++CosNumber;
                     n++;
                     for (int p = 0; p < n; p++)
                     {
@@ -218,18 +218,20 @@ int main(){
                               cos_Lcup++;
                          }
                     }
+                    cout<<" \n >> Here is your Reciept : \n";
                     enqueue(s,typeofcoffee,typeofcup,numberofcup,n,List);
                }
                else
                {
                     goto wantmore;
                }
-               cout << "Coffee\t Price per Coffee\t Total\n";
+               cout << " Coffee "<<setw(18)<<" Price per Cup "<<setw(18)<<" Total\n";
                priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
           }
           if (choice == 2)
           {
+               cout<<"\n + You chose Game ::"<<endl;
                system("cls");
                char an;
                cout<<" ++ We have 3 games and our system will randomly chose it for you ++\n"<<endl;
@@ -268,13 +270,13 @@ int main(){
                }
           }  
           if (choice == 3){
+               cout<<"\n + You chose Customer Order ::"<<endl;
                int select;
-          
                do
                {
                     again:
-                    cout<<"  1. Remove a queue\n  2. Display queue\n  3. Exit\n";
-                    cout<<" Enter your choice : ";
+                    cout<<"  1. Remove a Order (It has been served)\n  2. Display Order\n  3. Back\n";
+                    cout<<" \nEnter your choice : ";
                     cin>>select;
                     if(select==1)
                     {
@@ -303,10 +305,10 @@ int main(){
                     }
                }while(select!=4);
 
-
           }
           if (choice == 4)
           {
+               cout<<"\n + You chose Admin ::"<<endl;
                Wrpass:
                string pass;
                cout << " ** Password : ";
@@ -376,6 +378,7 @@ int main(){
           }
           if (choice == 5)
           {
+               cout<<"\n + Close Shop ::"<<endl;
                break;
           }          
      }

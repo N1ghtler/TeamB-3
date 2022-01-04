@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include<ctime>
 #include<string>
 using namespace std;
@@ -251,7 +251,7 @@ void Game3(){
     // cout<<GenerateWord(word);
     len = word.length();
     
-        if(len> 5){
+        if(len>= 5){
             if(GenerateWord(word)==0){
                 cout<<" => Congratulation !! You got Discount 1$"<<endl;}
             else if(GenerateWord(word)==1){
