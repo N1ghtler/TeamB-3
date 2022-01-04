@@ -264,6 +264,7 @@ int main(){
                     if(select==1)
                     {
                          string pass;
+                         cout << "(e)For exit"<<endl;
                          cout << " ++ Password : ";
                          cin >> pass;
                          if (!password(pass))
@@ -271,6 +272,11 @@ int main(){
                               cout << " << Wrong Password >>\n";
                               goto Wrpass;
                          }
+                         else if (pass == "e")
+                         {
+                              goto again;
+                         }
+                         
                          Dequeue(s);
                     }
                     else if(select==2)
@@ -292,11 +298,16 @@ int main(){
           if (choice == 4)
           {
                cout<<"\n + You chose Admin ::"<<endl;
+               cout << "(e) For exit"<<endl;
                Wrpass:
                string pass;
                cout << " ** Password : ";
                cin >> pass;
-               if (!password(pass))
+               if (pass == "e")
+               {
+                    goto Menu;
+               }
+               else if (!password(pass))
                {
                     cout << " << Wrong Password >>\n";
                     goto Wrpass;
