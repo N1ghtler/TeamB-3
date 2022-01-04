@@ -20,7 +20,6 @@ int today_Date = ltm->tm_mday
    ,today_Year = 1900 + ltm->tm_year
 ;
 
-
 CoffeeMenu List[20];
 int i = 0;
 
@@ -80,7 +79,6 @@ bool password(string password)
   }
 }
 
-
 void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
@@ -122,7 +120,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
 
 }
 
-void dateCheck(){
+void DateCheck(){
      cout << "Year:" << 1900 + ltm->tm_year<<endl;
      cout << "Month: "<< 1 + ltm->tm_mon<< endl;
      cout << "Day: "<< ltm->tm_mday << endl;
@@ -136,21 +134,19 @@ int main(){
      dateCheck();
      ReadDataToCoffee();
 
-     
      //Write below here
       int choice;
-
      while (true)
      {
           Menu:
           cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
           cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
-          cout<<"1.Coffee Menu"<<endl;
-          cout<<"2.Game"<<endl;
-          cout<<"3.Queue"<<endl;
-          cout<<"4.Admin"<<endl;
-          cout<<"5.Exit"<<endl;
-          cout<<"Please enter your choice:"<<endl;cin>>choice;
+          cout<<" 1. Coffee Menu"<<endl;
+          cout<<" 2. Game"<<endl;
+          cout<<" 3. Queue"<<endl;
+          cout<<" 4. Admin"<<endl;
+          cout<<" 5. Exit"<<endl;
+          cout<<" => Please enter your choice : ";cin>>choice;
           if (choice==1){
                char more;
                int n = 0;
@@ -162,7 +158,7 @@ int main(){
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
                IDorder:
-               cout << "Enter The ID of the Coffee: ";
+               cout << " - Enter The ID of the Coffee: ";
                cin >> typeofcoffee[n];
                typeofcoffee[n] = typeofcoffee[n] - 1;
                if (List[typeofcoffee[n]].No == 0)
@@ -170,14 +166,15 @@ int main(){
                     goto IDorder;
                }
                
-               cout << "Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n> ";
+               cout << " Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n> ";
+               cout <<" => ";
                cin >> typeofcup[n];
                if (typeofcup[n] == 4)
                {
                     goto IDorder;
                }
                AmountCoff:
-               cout << "Enter The number of the Coffee \n(-1 for Menu):";
+               cout << " Enter The number of the Coffee \n(-1 for Menu) : ";
                cin >> numberofcup[n];
                if (numberofcup[n] == -1)
                {
@@ -191,6 +188,7 @@ int main(){
                
                wantmore:
                cout << "Do You want to get more ?(y)Yes,(n)No";
+               cout<<" => ";
                cin >> more;
                
                if (more == 'y')
@@ -275,17 +273,17 @@ int main(){
                do
                {
                     again:
-                    cout<<"1. Remove a queue\n2. Display queue\n3. Exit\n";
-                    cout<<"Enter your choice: ";
+                    cout<<"  1. Remove a queue\n  2. Display queue\n  3. Exit\n";
+                    cout<<" Enter your choice : ";
                     cin>>select;
                     if(select==1)
                     {
                          string pass;
-                         cout << "Password: ";
+                         cout << " ++ Password : ";
                          cin >> pass;
                          if (!password(pass))
                          {
-                              cout << "Wrong Password\n";
+                              cout << " << Wrong Password >>\n";
                               goto Wrpass;
                          }
                          Dequeue(s);
@@ -300,7 +298,7 @@ int main(){
                          goto Menu;
                     }
                     else{
-                         cout<<"Invalid input\n"<<endl;
+                         cout<<" << Invalid input >> \n"<<endl;
                          goto again;
                     }
                }while(select!=4);
@@ -311,42 +309,42 @@ int main(){
           {
                Wrpass:
                string pass;
-               cout << "Password: ";
+               cout << " ** Password : ";
                cin >> pass;
                if (!password(pass))
                {
-                    cout << "Wrong Password\n";
+                    cout << " << Wrong Password >>\n";
                     goto Wrpass;
                }
                int select;
                int RDay,Rmonth,Ryear;
                
                Ragain:
-               cout<<"1. Report Day\n2. Report Month\n3. Report Year\n4.Save Report\n5.Exit\n"<<"> ";
-               cin >>select;
+               cout<<" 1. Report Day\n 2. Report Month\n 3. Report Year\n 4.Save Report\n 5. Exit\n"<<" => ";
+               cin >>select; 
                if(select==1)
                {
-                    cout << "Enter Date:";
+                    cout << " - Enter Date :";
                     cin >> RDay;
-                    cout << "Enter Month:";
+                    cout << " - Enter Month :";
                     cin >> Rmonth;
-                    cout << "Enter Year:";
+                    cout << " - Enter Year : ";
                     cin >> Ryear;
                     Report_Day(RDay,Rmonth,Ryear);
                     goto Ragain;
                }
                else if(select==2)
                {
-                    cout << "Enter Month:";
+                    cout << " - Enter Month : ";
                     cin >> Rmonth;
-                    cout << "Enter Year:";
+                    cout << " - Enter Year : ";
                     cin >> Ryear;
                     Report_month(Rmonth,Ryear);
                     goto Ragain;
                }
                else if(select==3)
                {
-                    cout << "Enter Year:";
+                    cout << " - Enter Year : ";
                     cin >> Ryear;
                     Report_year(Ryear);
                     goto Ragain;
@@ -364,7 +362,7 @@ int main(){
                     {
                          Today_Top_Sells[r] = 0;
                     }
-                    cout << "Data Saved"<<endl;
+                    cout << " <<Data Saved>>"<<endl;
                     goto Ragain;
                }
                else if(select==5){
@@ -372,7 +370,7 @@ int main(){
                }
                else
                {
-                    cout<<"Invalid input\n"<<endl;
+                    cout<<"  << Invalid input  >>\n"<<endl;
                     goto Ragain;
                }
           }
