@@ -276,7 +276,7 @@ int main(){
                          {
                               goto again;
                          }
-                         
+                         system("cls");
                          Dequeue(s);
                     }
                     else if(select==2)
@@ -312,6 +312,7 @@ int main(){
                     cout << " << Wrong Password >>\n";
                     goto Wrpass;
                }
+               system("cls");
                int select;
                int RDay,Rmonth,Ryear;
                
