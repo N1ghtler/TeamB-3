@@ -33,7 +33,6 @@ void FindTopSell(){
           }
      }
 }
-
 void ReadDataToCoffee(){
      fstream listCoffee;
      listCoffee.open("CoffeeList.txt",ios::in);
@@ -66,10 +65,9 @@ void ReadData(){
     }
     F1.close();
 }
-
 bool password(string password)
 {
-  if(password == "pass12345")
+  if(password == "CADTauto2021")
   {
     return true;
   }
@@ -186,7 +184,7 @@ int main(){
                     cout <<" !!<< ONLY BIGGER THEN 0 >>";
                     goto AmountCoff;
                }
-               
+       
                wantmore:
                cout << " - Do You want to get more ?\n ( 1. Yes , 2. No ) ";
                cout<<" => ";
