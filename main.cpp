@@ -148,7 +148,6 @@ void DateCheck(){
 }
 
 int main(){
-     system("Color F4");
      system("cls");
      //Start UP
      Queue *s;
