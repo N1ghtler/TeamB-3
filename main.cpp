@@ -221,24 +221,6 @@ int main(){
                else if (more == '2')
                {
                     n++;
-                    for (int p = 0; p < n; p++)
-                    {
-                         if (typeofcup[p] == 1)
-                         {
-                              today_Scup = today_Scup + numberofcup[p];
-                              cos_Scup++;
-                         }
-                         else if (typeofcup[p] == 2)
-                         {
-                              today_Mcup++;
-                              cos_Mcup++;
-                         }
-                         else if (typeofcup[p] == 3)
-                         {
-                              today_Lcup++;
-                              cos_Lcup++;
-                         }
-                    }
                     cout<<" \n >> Here is your Reciept : \n";
                     enqueue(s,typeofcoffee,typeofcup,numberofcup,n,List);
                }
