@@ -130,7 +130,7 @@ void DateCheck(){
 }
 
 int main(){
-     system("Color F5");
+     system("Color F4");
      system("cls");
      //Start UP
      Queue *s;
@@ -203,7 +203,6 @@ int main(){
                else if (more == '2')
                {
                     n++;
-<<<<<<< HEAD
                     for (int p = 0; p < n; p++)
                     {
                          if (typeofcup[p] == 1)
@@ -222,8 +221,6 @@ int main(){
                               cos_Lcup++;
                          }
                     }
-=======
->>>>>>> a056346286615f688d5fe17ad089730a86a5eb2f
                     cout<<" \n >> Here is your Reciept : \n";
                     enqueue(s,typeofcoffee,typeofcup,numberofcup,n,List);
                }
@@ -238,6 +235,7 @@ int main(){
           if (choice == 2)
           {
                cout<<"\n ++ Game For Cutomer (Waiting for Serve)::"<<endl;
+               
                system("cls");
                char an;
                cout<<" ++ We have 3 games and our system will randomly chose it for you ++\n"<<endl;
@@ -320,12 +318,7 @@ int main(){
           }
           if (choice == 4)
           {
-<<<<<<< HEAD
                cout<<"\n ++ Admin ::"<<endl;
-=======
-               cout<<"\n + You chose Admin ::"<<endl;
-               cout << "(e) For exit"<<endl;
->>>>>>> a056346286615f688d5fe17ad089730a86a5eb2f
                Wrpass:
                string pass;
                cout << " ** Password : ";
