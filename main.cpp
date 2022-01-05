@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <stdlib.h>
 #include "Report.h"
 #include "Queue.h"
 #include "Game.h"
