@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <stdlib.h>
 #include "Report.h"
 #include "Queue.h"
 #include "Game.h"
@@ -117,8 +118,25 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
      }
      cout<< "\nThe total cost is "<<Cos_Total<<"$";
+     if (Cos_Total > 50)
+     {
+          cout << "Discount 10$"<<endl;
+          Cos_Total = Cos_Total - 10;
+          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
+     }
+     else if (Cos_Total > 20)
+     {
+          cout << "Discount 5$"<<endl;
+          Cos_Total = Cos_Total - 5;
+          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
+     }
+     else if (Cos_Total > 10)
+     {
+          cout << "Discount 1$"<<endl;
+          Cos_Total = Cos_Total - 1;
+          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
+     }
      today_income = Cos_Total + today_income;
-
 }
 
 void DateCheck(){
@@ -141,6 +159,7 @@ int main(){
      while (true)
      {
           Menu:
+          system("color 04");
           cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
           cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
           cout<<" 1. Coffee Menu"<<endl;
