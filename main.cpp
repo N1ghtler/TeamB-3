@@ -119,6 +119,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
 }
 
 void DateCheck(){
+     
      cout << " - Year :" << 1900 + ltm->tm_year<<endl;
      cout << " - Month : "<< 1 + ltm->tm_mon<< endl;
      cout << " - Day : "<< ltm->tm_mday << endl;
@@ -126,6 +127,7 @@ void DateCheck(){
 }
 
 int main(){
+     system("Color F5");
      system("cls");
      //Start UP
      Queue *s;
@@ -147,7 +149,7 @@ int main(){
           cout<<" 5. Exit"<<endl;
           cout<<" \n=> Please enter your choice : ";cin>>choice;
           if (choice==1){
-               cout<<"\n + You chose Coffee Menu ::"<<endl;
+               cout<<"\n  ++ Coffee Menu ::"<<endl;
                char more;
                int n = 0;
                int typeofcoffee[10];
@@ -202,7 +204,7 @@ int main(){
                     {
                          if (typeofcup[p] == 1)
                          {
-                              today_Scup++;
+                              today_Scup = today_Scup + numberofcup[p];
                               cos_Scup++;
                          }
                          else if (typeofcup[p] == 2)
@@ -229,7 +231,7 @@ int main(){
           }
           if (choice == 2)
           {
-               cout<<"\n + You chose Game ::"<<endl;
+               cout<<"\n ++ Game For Cutomer (Waiting for Serve)::"<<endl;
                system("cls");
                char an;
                cout<<" ++ We have 3 games and our system will randomly chose it for you ++\n"<<endl;
@@ -268,7 +270,7 @@ int main(){
                }
           }  
           if (choice == 3){
-               cout<<"\n + You chose Customer Order ::"<<endl;
+               cout<<"\n ++ Customer Order ::"<<endl;
                int select;
                do
                {
@@ -306,7 +308,7 @@ int main(){
           }
           if (choice == 4)
           {
-               cout<<"\n + You chose Admin ::"<<endl;
+               cout<<"\n ++ Admin ::"<<endl;
                Wrpass:
                string pass;
                cout << " ** Password : ";
