@@ -77,6 +77,33 @@ bool password(string password)
   }
 }
 
+double discount(double Price){
+
+    double discount,AfterDiscount;
+
+    if(Price<0){
+     cout<<"Invalid input!! Please try again\n\n"<<endl;
+    }
+    else if(Price>0 && Price<10){
+     AfterDiscount=Price;
+    }
+    else if(Price>=10 && Price<20){
+     discount=Price*5/100;
+     cout << "\n Discount 5%" <<endl;
+    }
+    else if(Price>50){
+     discount=Price*20/100;
+     cout << "\n Discount 20%" <<endl;
+    }
+    else if(Price>=20 && Price<50){
+    discount=Price*10/100;
+     cout << "\n Discount 10%" <<endl;
+    }
+    AfterDiscount=Price-discount;
+    cout <<"After discount is " << AfterDiscount<<endl;
+    return AfterDiscount;
+}
+
 void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
@@ -117,24 +144,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
      }
      cout<< "\nThe total cost is "<<Cos_Total<<"$";
-     if (Cos_Total > 50)
-     {
-          cout << "Discount 10$"<<endl;
-          Cos_Total = Cos_Total - 10;
-          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
-     }
-     else if (Cos_Total > 20)
-     {
-          cout << "Discount 5$"<<endl;
-          Cos_Total = Cos_Total - 5;
-          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
-     }
-     else if (Cos_Total > 10)
-     {
-          cout << "Discount 1$"<<endl;
-          Cos_Total = Cos_Total - 1;
-          cout<< "\nThe total cost after discount is "<<Cos_Total<<"$";
-     }
+     Cos_Total = discount(Cos_Total);
      today_income = Cos_Total + today_income;
 }
 
