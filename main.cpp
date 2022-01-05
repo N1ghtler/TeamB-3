@@ -7,7 +7,7 @@
 using namespace std;
 
 int Stop=0;
-int today_Scup,today_Mcup,today_Lcup;
+int today_Scup=0,today_Mcup=0,today_Lcup=0;
 int cos_Scup=0,cos_Mcup=0,cos_Lcup=0;
 double Cos_Total=0,today_income = 0;
 int Today_Top_Sells[20],ID_Top_Sel,Number_Top_Sell;
@@ -83,7 +83,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      for (int oS = 0; oS < arrSize; oS++)
      {   
           totalPrice = 0; 
-          Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + arrSize;
+          Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + number[oS];
           if (type[oS] == 0)
           {
                cout << " Bullet"<< setw(15) ;
@@ -93,6 +93,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
           if (Size[oS] == 1)
           {
+               today_Scup = today_Scup + number[oS];
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
                cout << Menu[type[oS]].S << setw(18) << totalPrice<<"$"<<endl;
@@ -100,6 +101,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
           else if (Size[oS] == 2)
           {
+               today_Mcup = today_Mcup + number[oS];
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
                cout << Menu[type[oS]].M << setw(18) << totalPrice<<"$"<<endl;
@@ -107,6 +109,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           }
           else if (Size[oS] == 3)
           {
+               today_Lcup = today_Lcup + number[oS];
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
                cout << Menu[type[oS]].L << setw(18) << totalPrice<<"$"<<endl;
@@ -200,6 +203,7 @@ int main(){
                else if (more == '2')
                {
                     n++;
+<<<<<<< HEAD
                     for (int p = 0; p < n; p++)
                     {
                          if (typeofcup[p] == 1)
@@ -218,6 +222,8 @@ int main(){
                               cos_Lcup++;
                          }
                     }
+=======
+>>>>>>> a056346286615f688d5fe17ad089730a86a5eb2f
                     cout<<" \n >> Here is your Reciept : \n";
                     enqueue(s,typeofcoffee,typeofcup,numberofcup,n,List);
                }
@@ -281,6 +287,7 @@ int main(){
                     if(select==1)
                     {
                          string pass;
+                         cout << "(e)For exit"<<endl;
                          cout << " ++ Password : ";
                          cin >> pass;
                          if (!password(pass))
@@ -288,6 +295,11 @@ int main(){
                               cout << " << Wrong Password >>\n";
                               goto Wrpass;
                          }
+                         else if (pass == "e")
+                         {
+                              goto again;
+                         }
+                         system("cls");
                          Dequeue(s);
                     }
                     else if(select==2)
@@ -308,16 +320,26 @@ int main(){
           }
           if (choice == 4)
           {
+<<<<<<< HEAD
                cout<<"\n ++ Admin ::"<<endl;
+=======
+               cout<<"\n + You chose Admin ::"<<endl;
+               cout << "(e) For exit"<<endl;
+>>>>>>> a056346286615f688d5fe17ad089730a86a5eb2f
                Wrpass:
                string pass;
                cout << " ** Password : ";
                cin >> pass;
-               if (!password(pass))
+               if (pass == "e")
+               {
+                    goto Menu;
+               }
+               else if (!password(pass))
                {
                     cout << " << Wrong Password >>\n";
                     goto Wrpass;
                }
+               system("cls");
                int select;
                int RDay,Rmonth,Ryear;
                
