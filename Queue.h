@@ -384,7 +384,7 @@ void Dequeue(Queue *qs)
 	tmp = qs->front;
 	if(qs->n == 0)
 	{
-		cout<<"Cannot delete because there is no element in the queue";
+		cout<<" << Cannot delete because there is no element in the queue >> \n";
 	}
 	else
 	{
@@ -401,7 +401,7 @@ void Display_Queue_Cos(Queue *qs)
   int cos_order_number=1;
 	if(qs->n == 0)
 	{
-		cout<<"Cannot display because there is no element in the queue"<<endl;
+		cout<<" << Cannot display because there is no element in the queue >>\n"<<endl;
 	}
 	else
 	{
@@ -410,7 +410,7 @@ void Display_Queue_Cos(Queue *qs)
       cout << "Order: "<<cos_order_number<<endl;
     for(int i=0;i < tmp->ordersize ;i++)
 		{
-			cout<<"Name/Size/Number : ";
+			cout<<" Coffee|Size|Amount : ";
 			cout<<tmp->name[i]<<"\t"<<tmp->size[i]<<"\t"<<tmp->number[i];
 			cout<<endl;
 		}
