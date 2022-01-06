@@ -114,17 +114,25 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + number[oS];
           if (type[oS] == 0)
           {
-               cout << "Bullet"<< setw(10) ;
+               cout << "Bullet"<<"\t\t" ;
           }
           else{
-               cout << Menu[type[oS]].Type<< setw(10) ;
+               if (type[oS] == 1 || type[oS] == 4 || type[oS] == 5)
+               {
+                    cout << Menu[type[oS]].Type<<"\t\t";
+               }
+               else
+               {
+                    cout << Menu[type[oS]].Type<<"\t";
+               }
+               
           }
           if (Size[oS] == 1)
           {
                today_Scup = today_Scup + number[oS];
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].S << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].S <<"\t\t" << number[oS] <<"\t"<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 2)
@@ -132,7 +140,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                today_Mcup = today_Mcup + number[oS];
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].M << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].M <<"\t\t" << number[oS] <<"\t"<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 3)
@@ -140,7 +148,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                today_Lcup = today_Lcup + number[oS];
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].L << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].L <<"\t\t" << number[oS] <<"\t"<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
      }
@@ -202,7 +210,7 @@ int main(){
                cout << " - Enter The Size of the Coffee: \n 1. Small\n 2. Medium\n 3. Large\n 4. Menu\n";
                cout <<" => ";
                cin >> typeofcup[n];
-               if (typeofcup[n] == 4)
+               if (typeofcup[n] == 4 || typeofcup[n] > 4)
                {
                     goto IDorder;
                }
