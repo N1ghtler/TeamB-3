@@ -107,7 +107,7 @@ double discount(double Price){
 void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
-     system("color F1");
+     system("color 01");
      for (int oS = 0; oS < arrSize; oS++)
      {   
           totalPrice = 0; 
@@ -170,7 +170,7 @@ int main(){
      while (true)
      {
           Menu:
-          system("color F5");
+          system("color 05");
           cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
           cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
           cout<<" 1. Coffee Menu"<<endl;
@@ -239,7 +239,7 @@ int main(){
                {
                     goto wantmore;
                }
-               system("color F1");
+               system("color 01");
                cout << "Coffee \t Price per Cup \t Total cup \t Total: \n";
                priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
