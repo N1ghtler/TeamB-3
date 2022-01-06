@@ -107,6 +107,7 @@ double discount(double Price){
 void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
      Cos_Total=0;
      double totalPrice = 0,afCal;
+     system("color F1");
      for (int oS = 0; oS < arrSize; oS++)
      {   
           totalPrice = 0; 
@@ -157,7 +158,6 @@ void DateCheck(){
 }
 
 int main(){
-     system("Color F5");
      system("cls");
      //Start UP
      Queue *s;
@@ -170,7 +170,7 @@ int main(){
      while (true)
      {
           Menu:
-          system("color 04");
+          system("color F5");
           cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
           cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
           cout<<" 1. Coffee Menu"<<endl;
@@ -187,6 +187,7 @@ int main(){
                int typeofcup[10];
                int numberofcup[10];
                Order:
+               system("color 0A");
                cout<<"\n\n\t\t----------Welcome to  '3 Bullet' !!!---------"<<endl;
                cout<<"\t\t----------      Free to ENJOY       ---------"<<endl;
                ReadData();
@@ -238,6 +239,7 @@ int main(){
                {
                     goto wantmore;
                }
+               system("color F1");
                cout << "Coffee \t Price per Cup \t Total cup \t Total: \n";
                priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
@@ -328,6 +330,7 @@ int main(){
           }
           if (choice == 4)
           {
+               system("color 04");
                cout<<"\n ++ Admin ::"<<endl;
                Wrpass:
                string pass;
@@ -348,7 +351,7 @@ int main(){
                int RDay,Rmonth,Ryear;
                
                Ragain:
-               cout<<" 1. Report Day\n 2. Report Month\n 3. Report Year\n 4.Save Report\n 5. Exit\n"<<" => ";
+               cout<<" 1. Report Day\n 2. Report Month\n 3. Report Year\n 4. Save Report\n 5. Exit\n"<<" => ";
                cin >>select; 
                if(select==1)
                {
