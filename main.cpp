@@ -100,7 +100,7 @@ double discount(double Price){
      cout << "\n Discount 10%" <<endl;
     }
     AfterDiscount=Price-discount;
-    cout <<"After discount is " << AfterDiscount<<endl;
+    cout <<"\n After discount is " << AfterDiscount<<"$"<<endl;
     return AfterDiscount;
 }
 
@@ -144,7 +144,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                Cos_Total = Cos_Total + totalPrice;
           }
      }
-     cout<< "\nThe total cost is "<<Cos_Total<<"$";
+     cout<< "\nThe total cost is "<<Cos_Total<<"$" ;
      Cos_Total = discount(Cos_Total);
      today_income = Cos_Total + today_income;
 }
