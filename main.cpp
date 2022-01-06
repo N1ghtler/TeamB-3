@@ -331,6 +331,7 @@ int main(){
                cout<<"\n ++ Admin ::"<<endl;
                Wrpass:
                string pass;
+               cout << "(e)For exit"<<endl;
                cout << " ** Password : ";
                cin >> pass;
                if (pass == "e")
