@@ -113,17 +113,17 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
           Today_Top_Sells[type[oS]] = Today_Top_Sells[type[oS]] + number[oS];
           if (type[oS] == 0)
           {
-               cout << " Bullet"<< setw(15) ;
+               cout << "Bullet"<< setw(10) ;
           }
           else{
-               cout << Menu[type[oS]].Type<< setw(18) ;
+               cout << Menu[type[oS]].Type<< setw(10) ;
           }
           if (Size[oS] == 1)
           {
                today_Scup = today_Scup + number[oS];
                afCal = Menu[type[oS]].S * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].S << setw(18) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].S << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 2)
@@ -131,7 +131,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                today_Mcup = today_Mcup + number[oS];
                afCal = Menu[type[oS]].M * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].M << setw(18) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].M << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
           else if (Size[oS] == 3)
@@ -139,7 +139,7 @@ void priceCar(CoffeeMenu Menu[],int type[],int Size[],int number[],int arrSize){
                today_Lcup = today_Lcup + number[oS];
                afCal = Menu[type[oS]].L * number[oS];
                totalPrice = totalPrice + afCal;
-               cout << Menu[type[oS]].L << setw(18) << totalPrice<<"$"<<endl;
+               cout << Menu[type[oS]].L << setw(15) << number[oS] << setw(10)<< totalPrice<<"$"<<endl;
                Cos_Total = Cos_Total + totalPrice;
           }
      }
@@ -194,7 +194,7 @@ int main(){
                cout << " - Enter The ID of the Coffee : ";
                cin >> typeofcoffee[n];
                typeofcoffee[n] = typeofcoffee[n] - 1;
-               if (List[typeofcoffee[n]].No == 0)
+               if (List[typeofcoffee[n]].No == 0 || typeofcoffee[n] > 20)
                {
                     goto IDorder;
                }
@@ -238,7 +238,7 @@ int main(){
                {
                     goto wantmore;
                }
-               cout << " Coffee "<<setw(18)<<" Price per Cup "<<setw(18)<<" Total\n";
+               cout << "Coffee \t Price per Cup \t Total cup \t Total: \n";
                priceCar(List,typeofcoffee,typeofcup,numberofcup,n);
                
           }
