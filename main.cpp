@@ -29,7 +29,15 @@ void FindTopSell(){
           if (Today_Top_Sells[r] < Today_Top_Sells[r+1])
           {
                ID_Top_Sel = r+1;
-               Number_Top_Sell = Today_Top_Sells[r+1];
+               Number_Top_Sell = Today_Top_Sells[r+1];     
+          }
+     }
+     for (int r = 0; r < 15; r++)
+     {
+          if (Today_Top_Sells[ID_Top_Sel] < Today_Top_Sells[r])
+          {
+               ID_Top_Sel = r;
+               Number_Top_Sell = Today_Top_Sells[r];     
           }
      }
 }

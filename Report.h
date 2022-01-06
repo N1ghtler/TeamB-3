@@ -15,6 +15,14 @@ void MostLike(){
                Amug = Likes[i+1];
           }
      }
+     for (int i = 0; i < 20; i++)
+     {
+          if (Likes[LikeID] < Likes[i])
+          {
+               LikeID = i;
+               Amug = Likes[i];
+          }
+     }
      cout << "Most Order Coffee is "<< Name[LikeID] << " times : " << Amug << endl;
      for (int r = 0; r < 15; r++)
      {
