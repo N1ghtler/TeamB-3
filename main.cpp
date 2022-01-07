@@ -171,7 +171,7 @@ void DateCheck(){
      cout << " - Year :" << 1900 + ltm->tm_year<<endl;
      cout << " - Month : "<< 1 + ltm->tm_mon<< endl;
      cout << " - Day : "<< ltm->tm_mday << endl;
-     cout << " - Date was saved."<<endl;
+     cout << " - Date saved."<<endl;
 }
 
 int main(){
