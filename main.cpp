@@ -4,6 +4,7 @@
 #include "Report.h"
 #include "Queue.h"
 #include "Game.h"
+#include "Survey.h"
 using namespace std;
 
 int Stop=0;
@@ -193,7 +194,8 @@ int main(){
           cout<<" 2. Game"<<endl;
           cout<<" 3. Queue"<<endl;
           cout<<" 4. Admin"<<endl;
-          cout<<" 5. Exit"<<endl;
+          cout<<" 5. Survey"<<endl;
+          cout<<" 6. Exit"<<endl;
           cout<<" \n=> Please enter your choice : ";cin>>choice;
           if (choice==1){
                cout<<"\n  ++ Coffee Menu ::"<<endl;
@@ -367,7 +369,7 @@ int main(){
                int RDay,Rmonth,Ryear;
                
                Ragain:
-               cout<<" 1. Report Day\n 2. Report Month\n 3. Report Year\n 4. Save Report\n 5. Exit\n"<<" => ";
+               cout<<" 1. Report Day\n 2. Report Month\n 3. Report Year\n 4. Save Report\n 5. Survey Report\n 6. Exit\n"<<" => ";
                cin >>select; 
                if(select==1)
                {
@@ -412,7 +414,13 @@ int main(){
                     cout << " <<Data Saved>>"<<endl;
                     goto Ragain;
                }
-               else if(select==5){
+               else if (select==5)
+               {
+                    ReadSurvey();
+                    goto Menu;
+               }
+               
+               else if(select==6){
                     goto Menu;
                }
                else
@@ -422,6 +430,71 @@ int main(){
                }
           }
           if (choice == 5)
+          {
+               system("cls");
+               cout<<"\n ++ Customer Survey ::"<<endl;
+               int k=1;
+               char answer1;string answer2;
+               char anSurvey;
+               while(true){
+                    Strate:
+                    cout<<" \nWould you like to Do the Survey with BUllet ?"<<endl;
+                    cout<<" 1. Yes , 2. No"<<endl;
+                    cout<<" => ";
+                    cin>>anSurvey;
+               if(anSurvey == '1'){
+                    cout<<" Please read Question Carefully !!"<<endl;
+                    ReadSurveyQ();
+                    
+                    for(k=1;k<=3;k++){
+                         cout<<" Q : "<<k;
+                         cout<<". (1. Good , 2. Normal, 3. Bad)"<<endl;
+                         cout<<" => Answer : ";cin>>answer1;
+                         while(answer1>'3' ){
+                              cout<<" << Invalid Input! ";
+                              cout<<"Please Input agian>>"<<endl;
+                              cout<<"  Q : "<<k;
+                              cout<<". (1. Good , 2. Normal, 3. Bad)"<<endl;
+                              cout<<" => Answer : ";cin>>answer1;}
+                              WriteSurvey1(k,answer1);
+                         }
+                         for(k=4;k<=5;k++){
+                              if(k==4){
+                                   cout<<" Q : "<<k;
+                                   cout<<". (1. Yes, 2. No)"<<endl;
+                                   cout<<" => Answer : ";cin>>answer1;
+                                   while(answer1>'2' ){
+                                   cout<<" << Invalid Input! ";
+                                   cout<<"Please Input agian>>"<<endl;
+                                   cout<<"  Q : "<<k;
+                                   cout<<". (1. Yesc, 2. No)"<<endl;
+                                   cout<<" => Answer : ";cin>>answer1;}
+                                   WriteSurvey1(k,answer1);
+                              }
+                              else{
+                                   cout<<" Q : "<<k;
+                                   cout<<" => Feedbaack Or Suggestion : ";
+                                   fflush(stdin);getline(cin,answer2);
+                                   WriteSurvey2(k,answer2);
+                                   cout<<"\n";
+                              }
+                         }
+               }
+               else if(anSurvey=='2'){
+                    cout<<" <<Exit Survey>>"<<endl;
+                    cout<<" xxx- Thanks You for Visiting Us -xxx"<<endl;
+                    goto Menu;
+               }
+               else{
+               cout<<" << Invalid Input! ";
+               cout<<"Please choose again >>"<<endl;
+               goto Strate;
+               }
+               goto Menu;
+
+               }
+          }
+          if (choice == 6)
           {
                cout<<"\n + Close Shop ::"<<endl;
                break;

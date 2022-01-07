@@ -1,0 +1,23 @@
+.......................Questions.......................
+1. How is the Service here (Staff) ?
+============================== 
+ (1. Good , 2. Normal, 3. Bad)
+ 
+2. How is the Service here (Environment) ?
+============================== 
+ (1. Good , 2. Normal, 3. Bad)
+
+3. How is the Service here (Drink Service) ?
+============================== 
+ (1. Good , 2. Normal, 3. Bad)
+
+4. Would you recommond our shop to other ?
+=========================================
+ (1. Yes , 2. No)
+
+5. Feel free to feedback or have the suggest for us : 
+=====================================================
+
+........................Answer...........................
+ Question1 : 1 , Question2 : 2 , Question3 : 1 , Question4 : 2 , 5 Feedback : Wow, I've never taste such a coffee like these before
+ Question1 : 2 , Question2 : 2 , Question3 : 3 , Question4 : 2 , 5 Feedback : Everything is good, btw staff manner should be improe Question1 : 1 , Question2 : 1 , Question3 : 1 , Question4 : 2 , 5 Feedback : test
