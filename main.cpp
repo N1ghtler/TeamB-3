@@ -193,8 +193,8 @@ int main(){
           cout<<" 1. Coffee Menu"<<endl;
           cout<<" 2. Game"<<endl;
           cout<<" 3. Queue"<<endl;
-          cout<<" 4. Admin"<<endl;
-          cout<<" 5. Survey"<<endl;
+          cout<<" 4. Survey"<<endl;
+          cout<<" 5. Admin"<<endl;
           cout<<" 6. Exit"<<endl;
           cout<<" \n=> Please enter your choice : ";cin>>choice;
           if (choice==1){
