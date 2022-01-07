@@ -321,7 +321,7 @@ int main(){
                          if (!password(pass))
                          {
                               cout << " << Wrong Password >>\n";
-                              goto Wrpass;
+                              goto again;
                          }
                          else if (pass == "e")
                          {
