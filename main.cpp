@@ -346,7 +346,7 @@ int main(){
                }while(select!=4);
 
           }
-          if (choice == 4)
+          if (choice == 5)
           {
                system("color 04");
                cout<<"\n ++ Admin ::"<<endl;
@@ -429,7 +429,7 @@ int main(){
                     goto Ragain;
                }
           }
-          if (choice == 5)
+          if (choice == 4)
           {
                system("cls");
                cout<<"\n ++ Customer Survey ::"<<endl;
