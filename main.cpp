@@ -277,7 +277,7 @@ int main(){
 
                cout<<" \n\n- Our system will randomly chose a game for you"<<endl;
 
-               while (an<'1' || an>'2'){
+               while (true){
                cout<<" - Are you Ready to Start The Game ?\n  1. Yes , 2. N0 \n => ";
                cin >> an;
                system("cls");
